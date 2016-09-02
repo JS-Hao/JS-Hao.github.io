@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      js操作数组常用函数汇总 | JS-Hao blog 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="JS-Hao">
+    
+    
+
+    <meta name="description" content="JS操作数组常见函数汇总push(item1, item2…)将元素插入到数组末尾， 并返回该数组的长度
+unshift( item1, item2… )将元素插入到数组开头，并返回该数组的长度
+concat(item1, item2… || arr)参数可以一系列的值，也可以是数组，不会改变原数组，将返回新的数组
+splice(index, howmany, item1, item2…)
+ind">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js操作数组常用函数汇总 | JS-Hao blog">
+<meta property="og:url" content="http://yoursite.com/2016/09/02/my-new-post/index.html">
+<meta property="og:site_name" content="JS-Hao blog">
+<meta property="og:description" content="JS操作数组常见函数汇总push(item1, item2…)将元素插入到数组末尾， 并返回该数组的长度
+unshift( item1, item2… )将元素插入到数组开头，并返回该数组的长度
+concat(item1, item2… || arr)参数可以一系列的值，也可以是数组，不会改变原数组，将返回新的数组
+splice(index, howmany, item1, item2…)
+ind">
+<meta property="og:updated_time" content="2016-09-02T04:16:02.456Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="js操作数组常用函数汇总 | JS-Hao blog">
+<meta name="twitter:description" content="JS操作数组常见函数汇总push(item1, item2…)将元素插入到数组末尾， 并返回该数组的长度
+unshift( item1, item2… )将元素插入到数组开头，并返回该数组的长度
+concat(item1, item2… || arr)参数可以一系列的值，也可以是数组，不会改变原数组，将返回新的数组
+splice(index, howmany, item1, item2…)
+ind">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">JS-Hao blog</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+        <p class="panel-cover__description">
+          Just do what you want
+        </p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">js操作数组常用函数汇总</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2016-09-02" class="post-meta__date date">2016-09-02</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/汇总/">汇总</a>
+            </font>
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h2 id="JS操作数组常见函数汇总"><a href="#JS操作数组常见函数汇总" class="headerlink" title="JS操作数组常见函数汇总"></a>JS操作数组常见函数汇总</h2><h4 id="push-item1-item2…"><a href="#push-item1-item2…" class="headerlink" title="push(item1, item2…)"></a><strong>push(item1, item2…)</strong></h4><p>将元素插入到数组末尾， 并返回该数组的长度</p>
+<h4 id="unshift-item1-item2…"><a href="#unshift-item1-item2…" class="headerlink" title="unshift( item1, item2… )"></a><strong>unshift( item1, item2… )</strong></h4><p>将元素插入到数组开头，并返回该数组的长度</p>
+<h4 id="concat-item1-item2…-arr"><a href="#concat-item1-item2…-arr" class="headerlink" title="concat(item1, item2… || arr)"></a><strong>concat(item1, item2… || arr)</strong></h4><p>参数可以一系列的值，也可以是数组，不会改变原数组，将返回新的数组</p>
+<h4 id="splice-index-howmany-item1-item2…"><a href="#splice-index-howmany-item1-item2…" class="headerlink" title="splice(index, howmany, item1, item2…)"></a><strong>splice(index, howmany, item1, item2…)</strong></h4><ul>
+<li>index: 将要删除的元素的起始位置，若为负数，则从数组结尾处规定位置</li>
+<li>howmany: 删除的数量，若为0，则不会删除元素</li>
+<li>item1, item2…: 插入的元素</li>
+</ul>
+<p>此操作会改变原数组，返回被删除的元素所构成的新数组</p>
+<h4 id="join-separator"><a href="#join-separator" class="headerlink" title="join(separator)"></a><strong>join(separator)</strong></h4><p>将数组的每一个元素按次序连接成字符串，separator为元素之间的拼接符，此操作不会改变原数组，返回新的字符串</p>
+<h4 id="pop"><a href="#pop" class="headerlink" title="pop()"></a><strong>pop()</strong></h4><p>删除数组的最后一个元素，返回删除项</p>
+<h4 id="shift"><a href="#shift" class="headerlink" title="shift()"></a><strong>shift()</strong></h4><p>删除数组的第一个元素，返回删除的元素</p>
+<h4 id="reverse"><a href="#reverse" class="headerlink" title="reverse()"></a><strong>reverse()</strong></h4><p>翻转数组的顺序，此操作会改变原数组，返回翻转后的数组（浅复制，相同的引用）</p>
+<h4 id="sort"><a href="#sort" class="headerlink" title="sort()"></a><strong>sort()</strong></h4><p>对数组的元素进行按字典顺序排序（此操作会改变原数组，浅复制，返回翻转后的数组），在对由数字构成的数组而言，常需要传递一个比较函数<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> compare = <span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> a - b;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> nums = [<span class="number">1</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">5</span>, <span class="number">4</span>]</div><div class="line"><span class="built_in">console</span>.log(nums.sort(compare)) <span class="comment">//1, 2, 3, 4, 5</span></div></pre></td></tr></table></figure></p>
+
+  </section>
+
+  
+  
+</article>
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
+    
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>
