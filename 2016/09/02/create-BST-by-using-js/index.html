@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="汇总," />
+  <meta name="keywords" content="算法,总结," />
 
 
 
@@ -84,16 +84,16 @@
 
 
 
-<meta name="description" content="JS操作数组常见函数汇总push(item1, item2…)将元素插入到数组末尾， 并返回该数组的长度">
+<meta name="description" content="作为一个非科班出身的前端仔，最近为了应付校招的笔试，恶补了一顿算法和数据结构，把网上推荐的《数据结构与算法JavaScript描述》翻了翻，不得不说这是一本蛮不错的书，自己也跟着书上提供的思路，用JavaScript去实现一些常见的数据结构或者算法，在这里就稍微做下总结。今天要介绍的是如何用js实现二叉查找树以及它的一些基本操作（如插入、删除、遍历、查找等）">
 <meta property="og:type" content="article">
-<meta property="og:title" content="js操作数组常用函数汇总">
-<meta property="og:url" content="http://yoursite.com/2016/09/02/my-new-post/index.html">
+<meta property="og:title" content="js实现常见算法与数据结构一：二叉查找树">
+<meta property="og:url" content="http://yoursite.com/2016/09/02/create-BST-by-using-js/index.html">
 <meta property="og:site_name" content="JS-Hao blog">
-<meta property="og:description" content="JS操作数组常见函数汇总push(item1, item2…)将元素插入到数组末尾， 并返回该数组的长度">
-<meta property="og:updated_time" content="2016-09-02T13:07:37.478Z">
+<meta property="og:description" content="作为一个非科班出身的前端仔，最近为了应付校招的笔试，恶补了一顿算法和数据结构，把网上推荐的《数据结构与算法JavaScript描述》翻了翻，不得不说这是一本蛮不错的书，自己也跟着书上提供的思路，用JavaScript去实现一些常见的数据结构或者算法，在这里就稍微做下总结。今天要介绍的是如何用js实现二叉查找树以及它的一些基本操作（如插入、删除、遍历、查找等）">
+<meta property="og:updated_time" content="2016-09-02T15:34:54.304Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="js操作数组常用函数汇总">
-<meta name="twitter:description" content="JS操作数组常见函数汇总push(item1, item2…)将元素插入到数组末尾， 并返回该数组的长度">
+<meta name="twitter:title" content="js实现常见算法与数据结构一：二叉查找树">
+<meta name="twitter:description" content="作为一个非科班出身的前端仔，最近为了应付校招的笔试，恶补了一顿算法和数据结构，把网上推荐的《数据结构与算法JavaScript描述》翻了翻，不得不说这是一本蛮不错的书，自己也跟着书上提供的思路，用JavaScript去实现一些常见的数据结构或者算法，在这里就稍微做下总结。今天要介绍的是如何用js实现二叉查找树以及它的一些基本操作（如插入、删除、遍历、查找等）">
 
 
 
@@ -114,9 +114,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/09/02/my-new-post/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/09/02/create-BST-by-using-js/"/>
 
-  <title> js操作数组常用函数汇总 | JS-Hao blog </title>
+  <title> js实现常见算法与数据结构一：二叉查找树 | JS-Hao blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -236,7 +236,7 @@
             
             
               
-                js操作数组常用函数汇总
+                js实现常见算法与数据结构一：二叉查找树
               
             
           </h1>
@@ -248,7 +248,7 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-02T11:28:05+08:00" content="2016-09-02">
+            <time itemprop="dateCreated" datetime="2016-09-02T23:03:12+08:00" content="2016-09-02">
               2016-09-02
             </time>
           </span>
@@ -276,20 +276,17 @@
       
 
       
-        <h2 id="JS操作数组常见函数汇总"><a href="#JS操作数组常见函数汇总" class="headerlink" title="JS操作数组常见函数汇总"></a>JS操作数组常见函数汇总</h2><h4 id="push-item1-item2…"><a href="#push-item1-item2…" class="headerlink" title="push(item1, item2…)"></a><strong>push(item1, item2…)</strong></h4><p>将元素插入到数组末尾， 并返回该数组的长度<br><a id="more"></a></p>
-<h4 id="unshift-item1-item2…"><a href="#unshift-item1-item2…" class="headerlink" title="unshift( item1, item2… )"></a><strong>unshift( item1, item2… )</strong></h4><p>将元素插入到数组开头，并返回该数组的长度</p>
-<h4 id="concat-item1-item2…-arr"><a href="#concat-item1-item2…-arr" class="headerlink" title="concat(item1, item2… || arr)"></a><strong>concat(item1, item2… || arr)</strong></h4><p>参数可以一系列的值，也可以是数组，不会改变原数组，将返回新的数组</p>
-<h4 id="splice-index-howmany-item1-item2…"><a href="#splice-index-howmany-item1-item2…" class="headerlink" title="splice(index, howmany, item1, item2…)"></a><strong>splice(index, howmany, item1, item2…)</strong></h4><ul>
-<li>index: 将要删除的元素的起始位置，若为负数，则从数组结尾处规定位置</li>
-<li>howmany: 删除的数量，若为0，则不会删除元素</li>
-<li>item1, item2…: 插入的元素</li>
-</ul>
-<p>此操作会改变原数组，返回被删除的元素所构成的新数组</p>
-<h4 id="join-separator"><a href="#join-separator" class="headerlink" title="join(separator)"></a><strong>join(separator)</strong></h4><p>将数组的每一个元素按次序连接成字符串，separator为元素之间的拼接符，此操作不会改变原数组，返回新的字符串</p>
-<h4 id="pop"><a href="#pop" class="headerlink" title="pop()"></a><strong>pop()</strong></h4><p>删除数组的最后一个元素，返回删除项</p>
-<h4 id="shift"><a href="#shift" class="headerlink" title="shift()"></a><strong>shift()</strong></h4><p>删除数组的第一个元素，返回删除的元素</p>
-<h4 id="reverse"><a href="#reverse" class="headerlink" title="reverse()"></a><strong>reverse()</strong></h4><p>翻转数组的顺序，此操作会改变原数组，返回翻转后的数组（浅复制，相同的引用）</p>
-<h4 id="sort"><a href="#sort" class="headerlink" title="sort()"></a><strong>sort()</strong></h4><p>对数组的元素进行按字典顺序排序（此操作会改变原数组，浅复制，返回翻转后的数组），在对由数字构成的数组而言，常需要传递一个比较函数<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> compare = <span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> a - b;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> nums = [<span class="number">1</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">5</span>, <span class="number">4</span>]</div><div class="line"><span class="built_in">console</span>.log(nums.sort(compare)) <span class="comment">//1, 2, 3, 4, 5</span></div></pre></td></tr></table></figure></p>
+        <p>作为一个非科班出身的前端仔，最近为了应付校招的笔试，恶补了一顿算法和数据结构，<br>把网上推荐的《数据结构与算法JavaScript描述》翻了翻，不得不说这是一本蛮不错的书，自己也跟着书上提供的<br>思路，用JavaScript去实现一些常见的数据结构或者算法，在这里就稍微做下总结。今天要介绍的是如何用js实现<br>二叉查找树以及它的一些基本操作（如插入、删除、遍历、查找等）<br><a id="more"></a></p>
+<h3 id="实现二叉查找树"><a href="#实现二叉查找树" class="headerlink" title="实现二叉查找树"></a>实现二叉查找树</h3><p>首先创建一个构造函数，用于创建二叉树的节点：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Node</span>(<span class="params">data, left, right, show</span>) </span>&#123;</div><div class="line">    <span class="keyword">this</span>.data = data;</div><div class="line">    <span class="keyword">this</span>.left = left;</div><div class="line">    <span class="keyword">this</span>.right = right;</div><div class="line">    <span class="keyword">this</span>.show = show;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//show函数用于显示节点的键值</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">show</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.data;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>同时我们再创建一个用于实现二叉查找树的构造函数<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">BST</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">this</span>.root = <span class="literal">null</span>;</div><div class="line">    <span class="keyword">this</span>.insert = insert;       <span class="comment">//插入方法</span></div><div class="line">    <span class="keyword">this</span>.traversal = traversal; <span class="comment">//遍历方法</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>接下来，我们要做的就是去思考如何按二叉查找树的规则插入节点了</p>
+<h3 id="插入"><a href="#插入" class="headerlink" title="插入"></a>插入</h3><p>二叉查找树的插入规则如下：</p>
+<ol>
+<li>判断BST对象是否有根节点，如果没有，则将“插入节点”（即将要插入的节点）插入到根节点处（root），否则将根节点设置为“当前节点”，进入步骤2</li>
+<li>比较当前节点与插入节点的大小，若插入节点小于当前节点，则进入步骤3，大于则进入步骤4</li>
+<li>访问当前节点的左节点，若为null，则插入到当前节点的左节点，若有，则将当前节点的左节点设置为当前节点，重复步骤2</li>
+<li>访问当前节点的右节点，若为null，则插入到当前节点的右节点，若有，则将当前节点的右节点设置为当前节点，重复步骤2</li>
+</ol>
 
       
     </div>
@@ -312,7 +309,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/汇总/" rel="tag">#汇总</a>
+            <a href="/tags/算法/" rel="tag">#算法</a>
+          
+            <a href="/tags/总结/" rel="tag">#总结</a>
           
         </div>
       
@@ -321,13 +320,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2016/09/02/my-new-post/" rel="next" title="js操作数组常用函数汇总">
+                <i class="fa fa-chevron-left"></i> js操作数组常用函数汇总
+              </a>
+            
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/09/02/create-BST-by-using-js/" rel="prev" title="js实现常见算法与数据结构一：二叉查找树">
-                js实现常见算法与数据结构一：二叉查找树 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -434,7 +433,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#JS操作数组常见函数汇总"><span class="nav-number">1.</span> <span class="nav-text">JS操作数组常见函数汇总</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#push-item1-item2…"><span class="nav-number">1.0.1.</span> <span class="nav-text">push(item1, item2…)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#unshift-item1-item2…"><span class="nav-number">1.0.2.</span> <span class="nav-text">unshift( item1, item2… )</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#concat-item1-item2…-arr"><span class="nav-number">1.0.3.</span> <span class="nav-text">concat(item1, item2… || arr)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#splice-index-howmany-item1-item2…"><span class="nav-number">1.0.4.</span> <span class="nav-text">splice(index, howmany, item1, item2…)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#join-separator"><span class="nav-number">1.0.5.</span> <span class="nav-text">join(separator)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#pop"><span class="nav-number">1.0.6.</span> <span class="nav-text">pop()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#shift"><span class="nav-number">1.0.7.</span> <span class="nav-text">shift()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#reverse"><span class="nav-number">1.0.8.</span> <span class="nav-text">reverse()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#sort"><span class="nav-number">1.0.9.</span> <span class="nav-text">sort()</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#实现二叉查找树"><span class="nav-number">1.</span> <span class="nav-text">实现二叉查找树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插入"><span class="nav-number">2.</span> <span class="nav-text">插入</span></a></li></ol></div>
             
           </div>
         </section>
