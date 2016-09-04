@@ -90,7 +90,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/09/02/create-BST-by-using-js/index.html">
 <meta property="og:site_name" content="JS-Hao blog">
 <meta property="og:description" content="作为一个非科班出身的前端仔，最近为了应付校招的笔试，恶补了一顿算法和数据结构，把网上推荐的《数据结构与算法JavaScript描述》翻了翻，不得不说这是一本蛮不错的书，自己也跟着书上提供的思路，用JavaScript去实现一些常见的数据结构或者算法，在这里就稍微做下总结。今天要介绍的是如何用js实现二叉查找树以及它的一些基本操作（如插入、删除、遍历、查找等）">
-<meta property="og:updated_time" content="2016-09-02T15:34:54.304Z">
+<meta property="og:updated_time" content="2016-09-03T06:49:44.488Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js实现常见算法与数据结构一：二叉查找树">
 <meta name="twitter:description" content="作为一个非科班出身的前端仔，最近为了应付校招的笔试，恶补了一顿算法和数据结构，把网上推荐的《数据结构与算法JavaScript描述》翻了翻，不得不说这是一本蛮不错的书，自己也跟着书上提供的思路，用JavaScript去实现一些常见的数据结构或者算法，在这里就稍微做下总结。今天要介绍的是如何用js实现二叉查找树以及它的一些基本操作（如插入、删除、遍历、查找等）">
@@ -276,7 +276,7 @@
       
 
       
-        <p>作为一个非科班出身的前端仔，最近为了应付校招的笔试，恶补了一顿算法和数据结构，<br>把网上推荐的《数据结构与算法JavaScript描述》翻了翻，不得不说这是一本蛮不错的书，自己也跟着书上提供的<br>思路，用JavaScript去实现一些常见的数据结构或者算法，在这里就稍微做下总结。今天要介绍的是如何用js实现<br>二叉查找树以及它的一些基本操作（如插入、删除、遍历、查找等）<br><a id="more"></a></p>
+        <p>作为一个非科班出身的前端仔，最近为了应付校招的笔试，恶补了一顿算法和数据结构，把网上推荐的《数据结构与算法JavaScript描述》翻了翻，不得不说这是一本蛮不错的书，自己也跟着书上提供的思路，用JavaScript去实现一些常见的数据结构或者算法，在这里就稍微做下总结。今天要介绍的是如何用js实现二叉查找树以及它的一些基本操作（如插入、删除、遍历、查找等）<br><a id="more"></a></p>
 <h3 id="实现二叉查找树"><a href="#实现二叉查找树" class="headerlink" title="实现二叉查找树"></a>实现二叉查找树</h3><p>首先创建一个构造函数，用于创建二叉树的节点：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Node</span>(<span class="params">data, left, right, show</span>) </span>&#123;</div><div class="line">    <span class="keyword">this</span>.data = data;</div><div class="line">    <span class="keyword">this</span>.left = left;</div><div class="line">    <span class="keyword">this</span>.right = right;</div><div class="line">    <span class="keyword">this</span>.show = show;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//show函数用于显示节点的键值</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">show</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.data;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>同时我们再创建一个用于实现二叉查找树的构造函数<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">BST</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">this</span>.root = <span class="literal">null</span>;</div><div class="line">    <span class="keyword">this</span>.insert = insert;       <span class="comment">//插入方法</span></div><div class="line">    <span class="keyword">this</span>.traversal = traversal; <span class="comment">//遍历方法</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>接下来，我们要做的就是去思考如何按二叉查找树的规则插入节点了</p>
@@ -287,6 +287,7 @@
 <li>访问当前节点的左节点，若为null，则插入到当前节点的左节点，若有，则将当前节点的左节点设置为当前节点，重复步骤2</li>
 <li>访问当前节点的右节点，若为null，则插入到当前节点的右节点，若有，则将当前节点的右节点设置为当前节点，重复步骤2</li>
 </ol>
+<p>根据如上规则，我们定义了insert函数：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">insert</span>(<span class="params">data</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> n = <span class="keyword">new</span> Node(data, <span class="literal">null</span>, <span class="literal">null</span>);</div><div class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.root === <span class="literal">null</span>) &#123;</div><div class="line">        <span class="keyword">this</span>.root = n;</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="keyword">var</span> current = <span class="keyword">this</span>.root;</div><div class="line">        <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</div><div class="line">            <span class="keyword">if</span> (n.data &lt; current.data) &#123;</div><div class="line">                <span class="keyword">if</span> (current.left !== <span class="literal">null</span>) &#123;</div><div class="line">                    current = current.left;</div><div class="line">                &#125; <span class="keyword">else</span> &#123;</div><div class="line">                    current.left = n;</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">                &#125;</div><div class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (n.data &gt; current.data) &#123;</div><div class="line">                <span class="keyword">if</span> (current.right !== <span class="literal">null</span>) &#123;</div><div class="line">                    current = current.right;</div><div class="line">                &#125; <span class="keyword">else</span> &#123;</div><div class="line">                    current.right = n;</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">                &#125;</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                <span class="built_in">console</span>.log(<span class="string">'已存在相同的键值，无法插入！'</span>);</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -327,6 +328,10 @@
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/09/04/tree-Knowledge-summary/" rel="prev" title="算法学习笔记一：二叉树">
+                算法学习笔记一：二叉树 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -394,7 +399,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">2</span>
+              <span class="site-state-item-count">3</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

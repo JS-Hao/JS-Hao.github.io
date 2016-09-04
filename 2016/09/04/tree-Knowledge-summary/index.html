@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="汇总," />
+  <meta name="keywords" content="算法,总结," />
 
 
 
@@ -84,16 +84,22 @@
 
 
 
-<meta name="description" content="JS操作数组常见函数汇总push(item1, item2…)将元素插入到数组末尾， 并返回该数组的长度">
+<meta name="description" content="重要概念
+完全二叉树设二叉树的高度为h，除了第h层以外，其他各层的节点数都达到最大值2^(i-1)，第h层有叶子节点，并且叶子节点都是从左到右依次排布
+满二叉树">
 <meta property="og:type" content="article">
-<meta property="og:title" content="js操作数组常用函数汇总">
-<meta property="og:url" content="http://yoursite.com/2016/09/02/my-new-post/index.html">
+<meta property="og:title" content="算法学习笔记一：二叉树">
+<meta property="og:url" content="http://yoursite.com/2016/09/04/tree-Knowledge-summary/index.html">
 <meta property="og:site_name" content="JS-Hao blog">
-<meta property="og:description" content="JS操作数组常见函数汇总push(item1, item2…)将元素插入到数组末尾， 并返回该数组的长度">
-<meta property="og:updated_time" content="2016-09-02T13:07:37.478Z">
+<meta property="og:description" content="重要概念
+完全二叉树设二叉树的高度为h，除了第h层以外，其他各层的节点数都达到最大值2^(i-1)，第h层有叶子节点，并且叶子节点都是从左到右依次排布
+满二叉树">
+<meta property="og:updated_time" content="2016-09-04T03:03:47.685Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="js操作数组常用函数汇总">
-<meta name="twitter:description" content="JS操作数组常见函数汇总push(item1, item2…)将元素插入到数组末尾， 并返回该数组的长度">
+<meta name="twitter:title" content="算法学习笔记一：二叉树">
+<meta name="twitter:description" content="重要概念
+完全二叉树设二叉树的高度为h，除了第h层以外，其他各层的节点数都达到最大值2^(i-1)，第h层有叶子节点，并且叶子节点都是从左到右依次排布
+满二叉树">
 
 
 
@@ -114,9 +120,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/09/02/my-new-post/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/09/04/tree-Knowledge-summary/"/>
 
-  <title> js操作数组常用函数汇总 | JS-Hao blog </title>
+  <title> 算法学习笔记一：二叉树 | JS-Hao blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -236,7 +242,7 @@
             
             
               
-                js操作数组常用函数汇总
+                算法学习笔记一：二叉树
               
             
           </h1>
@@ -248,8 +254,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-02T11:28:05+08:00" content="2016-09-02">
-              2016-09-02
+            <time itemprop="dateCreated" datetime="2016-09-04T10:29:58+08:00" content="2016-09-04">
+              2016-09-04
             </time>
           </span>
 
@@ -276,20 +282,35 @@
       
 
       
-        <h2 id="JS操作数组常见函数汇总"><a href="#JS操作数组常见函数汇总" class="headerlink" title="JS操作数组常见函数汇总"></a>JS操作数组常见函数汇总</h2><h4 id="push-item1-item2…"><a href="#push-item1-item2…" class="headerlink" title="push(item1, item2…)"></a><strong>push(item1, item2…)</strong></h4><p>将元素插入到数组末尾， 并返回该数组的长度<br><a id="more"></a></p>
-<h4 id="unshift-item1-item2…"><a href="#unshift-item1-item2…" class="headerlink" title="unshift( item1, item2… )"></a><strong>unshift( item1, item2… )</strong></h4><p>将元素插入到数组开头，并返回该数组的长度</p>
-<h4 id="concat-item1-item2…-arr"><a href="#concat-item1-item2…-arr" class="headerlink" title="concat(item1, item2… || arr)"></a><strong>concat(item1, item2… || arr)</strong></h4><p>参数可以一系列的值，也可以是数组，不会改变原数组，将返回新的数组</p>
-<h4 id="splice-index-howmany-item1-item2…"><a href="#splice-index-howmany-item1-item2…" class="headerlink" title="splice(index, howmany, item1, item2…)"></a><strong>splice(index, howmany, item1, item2…)</strong></h4><ul>
-<li>index: 将要删除的元素的起始位置，若为负数，则从数组结尾处规定位置</li>
-<li>howmany: 删除的数量，若为0，则不会删除元素</li>
-<li>item1, item2…: 插入的元素</li>
+        <ol>
+<li><h3 id="重要概念"><a href="#重要概念" class="headerlink" title="重要概念"></a>重要概念</h3><ul>
+<li><h5 id="完全二叉树"><a href="#完全二叉树" class="headerlink" title="完全二叉树"></a>完全二叉树</h5>设二叉树的高度为h，除了第h层以外，其他各层的节点数都达到最大值<strong>2^(i-1)</strong>，第h层有叶子节点，并且叶子节点都是从左到右依次排布</li>
+<li><h5 id="满二叉树"><a href="#满二叉树" class="headerlink" title="满二叉树"></a>满二叉树</h5><a id="more"></a>
+除了叶子节点外每一个节点的度都为2且叶子节点都处于最底层的二叉树</li>
+<li><h5 id="平衡二叉树"><a href="#平衡二叉树" class="headerlink" title="平衡二叉树"></a>平衡二叉树</h5>又称为AVL树，它是一颗二叉排序树且具有以下性质：它是一颗空树或者它的左右子树的高度差的绝对值不超过1，同时左右两颗子树也是一颗平衡二叉树</li>
+<li><h5 id="节点的度"><a href="#节点的度" class="headerlink" title="节点的度"></a>节点的度</h5>节点的分支数</li>
+<li><h5 id="树的度"><a href="#树的度" class="headerlink" title="树的度"></a>树的度</h5>树中最大节点的度</li>
+<li><h5 id="森林"><a href="#森林" class="headerlink" title="森林"></a>森林</h5>指的是若干课互不相交的树的集合</li>
+<li><h5 id="有序树"><a href="#有序树" class="headerlink" title="有序树"></a>有序树</h5>指的是树中同层节点从左向右依次排序，它们之间的次序不能交换，这样的叫做有序树，否则称为无序树</li>
 </ul>
-<p>此操作会改变原数组，返回被删除的元素所构成的新数组</p>
-<h4 id="join-separator"><a href="#join-separator" class="headerlink" title="join(separator)"></a><strong>join(separator)</strong></h4><p>将数组的每一个元素按次序连接成字符串，separator为元素之间的拼接符，此操作不会改变原数组，返回新的字符串</p>
-<h4 id="pop"><a href="#pop" class="headerlink" title="pop()"></a><strong>pop()</strong></h4><p>删除数组的最后一个元素，返回删除项</p>
-<h4 id="shift"><a href="#shift" class="headerlink" title="shift()"></a><strong>shift()</strong></h4><p>删除数组的第一个元素，返回删除的元素</p>
-<h4 id="reverse"><a href="#reverse" class="headerlink" title="reverse()"></a><strong>reverse()</strong></h4><p>翻转数组的顺序，此操作会改变原数组，返回翻转后的数组（浅复制，相同的引用）</p>
-<h4 id="sort"><a href="#sort" class="headerlink" title="sort()"></a><strong>sort()</strong></h4><p>对数组的元素进行按字典顺序排序（此操作会改变原数组，浅复制，返回翻转后的数组），在对由数字构成的数组而言，常需要传递一个比较函数<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> compare = <span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> a - b;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> nums = [<span class="number">1</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">5</span>, <span class="number">4</span>]</div><div class="line"><span class="built_in">console</span>.log(nums.sort(compare)) <span class="comment">//1, 2, 3, 4, 5</span></div></pre></td></tr></table></figure></p>
+</li>
+<li><h3 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h3><ul>
+<li>二叉树的第i层至多有<strong>2^(i-1)</strong>个节点；</li>
+<li>深度为k的二叉树最多有<strong>2^k-1</strong>个节点，最少有k个节点</li>
+<li>对于任何一棵二叉树，如果其终端节点数为n0，度为2的节点数为n2，则存在关系<strong>n0=n2+1</strong></li>
+<li>具有n个节点的完全二叉树的深度为<strong>int(log2n)+1</strong>(以2为底10的对数) 或者是<strong>log2(n+1)</strong>?? ，待验证</li>
+<li>若对含n个节点的完全二叉树进行顺序方式存储，则结点之间有如下关系：<ul>
+<li>若节点的编号为i，则其父节点的编号为<strong>i/2</strong></li>
+<li>若<strong>2*i &lt;= n</strong>，则其左节点的编号为<strong>2*i</strong>，若<strong>2*i &gt; n</strong>，则无左节点</li>
+<li>若<strong>2*i+1 &lt;= n</strong>，则其右节点的编号为<strong>2*i+1</strong>，若<strong>2*i+1 &gt; n</strong>，则无右节点</li>
+</ul>
+</li>
+<li>给定n个节点，能构成h(N)种不同的二叉树，其中h()为<a href="http://baike.baidu.com/view/2499752.htm" target="_blank" rel="external">卡特兰数</a>的第n项，<strong>h(n)=C(2*n, n)/(n+1)</strong></li>
+<li>设有i个枝点，I为所有枝点的道路长度总和，J为叶的道路长度总和<strong>J=I+2i</strong></li>
+</ul>
+</li>
+</ol>
+<p>3.存储结构<br>关于存储结构，可以看这篇博客<a href="http://www.cnblogs.com/pengyingh/articles/2396466.html" target="_blank" rel="external">二叉树的存储结构</a></p>
 
       
     </div>
@@ -312,7 +333,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/汇总/" rel="tag">#汇总</a>
+            <a href="/tags/算法/" rel="tag">#算法</a>
+          
+            <a href="/tags/总结/" rel="tag">#总结</a>
           
         </div>
       
@@ -321,13 +344,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2016/09/02/create-BST-by-using-js/" rel="next" title="js实现常见算法与数据结构一：二叉查找树">
+                <i class="fa fa-chevron-left"></i> js实现常见算法与数据结构一：二叉查找树
+              </a>
+            
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/09/02/create-BST-by-using-js/" rel="prev" title="js实现常见算法与数据结构一：二叉查找树">
-                js实现常见算法与数据结构一：二叉查找树 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -434,7 +457,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#JS操作数组常见函数汇总"><span class="nav-number">1.</span> <span class="nav-text">JS操作数组常见函数汇总</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#push-item1-item2…"><span class="nav-number">1.0.1.</span> <span class="nav-text">push(item1, item2…)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#unshift-item1-item2…"><span class="nav-number">1.0.2.</span> <span class="nav-text">unshift( item1, item2… )</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#concat-item1-item2…-arr"><span class="nav-number">1.0.3.</span> <span class="nav-text">concat(item1, item2… || arr)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#splice-index-howmany-item1-item2…"><span class="nav-number">1.0.4.</span> <span class="nav-text">splice(index, howmany, item1, item2…)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#join-separator"><span class="nav-number">1.0.5.</span> <span class="nav-text">join(separator)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#pop"><span class="nav-number">1.0.6.</span> <span class="nav-text">pop()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#shift"><span class="nav-number">1.0.7.</span> <span class="nav-text">shift()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#reverse"><span class="nav-number">1.0.8.</span> <span class="nav-text">reverse()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#sort"><span class="nav-number">1.0.9.</span> <span class="nav-text">sort()</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#重要概念"><span class="nav-number">1.</span> <span class="nav-text">重要概念</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#完全二叉树"><span class="nav-number">1.0.1.</span> <span class="nav-text">完全二叉树</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#满二叉树"><span class="nav-number">1.0.2.</span> <span class="nav-text">满二叉树</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#平衡二叉树"><span class="nav-number">1.0.3.</span> <span class="nav-text">平衡二叉树</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#节点的度"><span class="nav-number">1.0.4.</span> <span class="nav-text">节点的度</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#树的度"><span class="nav-number">1.0.5.</span> <span class="nav-text">树的度</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#森林"><span class="nav-number">1.0.6.</span> <span class="nav-text">森林</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#有序树"><span class="nav-number">1.0.7.</span> <span class="nav-text">有序树</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#性质"><span class="nav-number">2.</span> <span class="nav-text">性质</span></a></li></ol></div>
             
           </div>
         </section>
