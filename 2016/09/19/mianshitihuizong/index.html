@@ -90,7 +90,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/09/19/mianshitihuizong/index.html">
 <meta property="og:site_name" content="JS-Hao blog">
 <meta property="og:description" content="校招大军已经在浩浩荡荡地进行中了，我也是参与校招的其中一份子（属于增大分母坐吃等死型人才），在面试过程中面试官不乏会提出各种各样的技术问题来难倒我们，往往很多应聘者就挂在了技术面这一难关。为了能够顺利地通过面试，本人特地上网搜索罗列出了一些面试题以及答案">
-<meta property="og:updated_time" content="2016-09-19T14:14:18.325Z">
+<meta property="og:updated_time" content="2016-09-19T14:23:28.227Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端面试题不完全汇总">
 <meta name="twitter:description" content="校招大军已经在浩浩荡荡地进行中了，我也是参与校招的其中一份子（属于增大分母坐吃等死型人才），在面试过程中面试官不乏会提出各种各样的技术问题来难倒我们，往往很多应聘者就挂在了技术面这一难关。为了能够顺利地通过面试，本人特地上网搜索罗列出了一些面试题以及答案">
@@ -278,24 +278,35 @@
       
         <p>校招大军已经在浩浩荡荡地进行中了，我也是参与校招的其中一份子（属于增大分母坐吃等死型人才），在面试过程中面试官不乏会提出各种各样的技术问题来难倒我们，往往很多应聘者就挂在了技术面这一难关。<br>为了能够顺利地通过面试，本人特地上网搜索罗列出了一些面试题以及答案<a id="more"></a>（网上的答案不一定正确，因此每一个问题的答案我也做了一番思考以及稍微的改动，当然如果有一些不正确的地方，也欢迎大家指正出来~），仅供参考。当然，我们不能够抱着投机取巧的心态去对待面试（以为刷刷题就能够混过面试了？too young），对于下面所提的每一个问题，都值得我们认真地去思考。</p>
 <ol>
-<li><h6 id="lt-DOCTYPE-gt-的作用是什么？有哪些模式？各自有什么特点？如何触发这些模式？区分它们有啥意义？"><a href="#lt-DOCTYPE-gt-的作用是什么？有哪些模式？各自有什么特点？如何触发这些模式？区分它们有啥意义？" class="headerlink" title="&lt;!DOCTYPE&gt;的作用是什么？有哪些模式？各自有什么特点？如何触发这些模式？区分它们有啥意义？"></a>&lt;!DOCTYPE&gt;的作用是什么？有哪些模式？各自有什么特点？如何触发这些模式？区分它们有啥意义？</h6><p><code>作用</code> &lt;!DOCTYPE&gt;声明位于文档的最上方，用于告知浏览器以什么文档类型规范来解析这个文档。</p>
-<p><code>模式</code> 三种：严格模式、混杂模式和过渡模式</p>
-<p><code>特点</code> </p>
-<p><code>触发</code> 通过对&lt;!DOCTYPE&gt;的不同声明，可触发不同的模式，如下所示：</p>
-<p><code>区分</code> 如果不区分（即DOCTYPE不存在或者格式不对），会导致文档以默认格式（混杂模式？？）解析</p>
+<li><h6 id="lt-DOCTYPE-gt-的作用是什么？有哪些模式？各自有什么特点？如何触发这些模式？区分它们有啥意义？"><a href="#lt-DOCTYPE-gt-的作用是什么？有哪些模式？各自有什么特点？如何触发这些模式？区分它们有啥意义？" class="headerlink" title="&lt;!DOCTYPE&gt;的作用是什么？有哪些模式？各自有什么特点？如何触发这些模式？区分它们有啥意义？"></a>&lt;!DOCTYPE&gt;的作用是什么？有哪些模式？各自有什么特点？如何触发这些模式？区分它们有啥意义？</h6><ul>
+<li><code>作用</code> &lt;!DOCTYPE&gt;声明位于文档的最上方，用于告知浏览器以什么文档类型规范来解析这个文档。</li>
+<li><code>模式</code> 三种：严格模式、混杂模式和过渡模式</li>
+<li><code>特点</code> </li>
+<li><code>触发</code> 通过对&lt;!DOCTYPE&gt;的不同声明，可触发不同的模式，如下所示：</li>
+<li><code>区分</code> 如果不区分（即DOCTYPE不存在或者格式不对），会导致文档以默认格式（混杂模式？？）解析</li>
+</ul>
 </li>
-<li><h6 id="行内元素有哪些？块级元素有哪些？空（void）元素又有哪些？"><a href="#行内元素有哪些？块级元素有哪些？空（void）元素又有哪些？" class="headerlink" title="行内元素有哪些？块级元素有哪些？空（void）元素又有哪些？"></a>行内元素有哪些？块级元素有哪些？空（void）元素又有哪些？</h6><p><code>行内元素</code> a b span img strong (回去翻书)</p>
-<p><code>块级元素</code> div ul ol li dl dt dd h1 h2 h3 p等</p>
-<p><code>空元素</code> （即没有内容的元素，开始标签和结束标签之间的内容是元素的内容）br hr img input link meta</p>
+<li><h6 id="行内元素有哪些？块级元素有哪些？空（void）元素又有哪些？"><a href="#行内元素有哪些？块级元素有哪些？空（void）元素又有哪些？" class="headerlink" title="行内元素有哪些？块级元素有哪些？空（void）元素又有哪些？"></a>行内元素有哪些？块级元素有哪些？空（void）元素又有哪些？</h6><ul>
+<li><code>行内元素</code> a b span img strong (回去翻书)</li>
+<li><code>块级元素</code> div ul ol li dl dt dd h1 h2 h3 p等</li>
+<li><code>空元素</code> （即没有内容的元素，开始标签和结束标签之间的内容是元素的内容）br hr img input link meta</li>
+</ul>
 </li>
-<li><h6 id="CSS的盒子模型有哪些，有什么区别？"><a href="#CSS的盒子模型有哪些，有什么区别？" class="headerlink" title="CSS的盒子模型有哪些，有什么区别？"></a>CSS的盒子模型有哪些，有什么区别？</h6><p><code>标准W3C盒子模式</code> margin、border、padding、content，其中content不包括其他部分，height和width指的就是content的高与宽</p>
-<p><code>盒子模型</code> margin、content（其中包含了border和padding），height和width指的是包含了border和padding的content的高与宽</p>
+<li><h6 id="CSS的盒子模型有哪些，有什么区别？"><a href="#CSS的盒子模型有哪些，有什么区别？" class="headerlink" title="CSS的盒子模型有哪些，有什么区别？"></a>CSS的盒子模型有哪些，有什么区别？</h6><ul>
+<li><p><code>标准W3C盒子模式</code> margin、border、padding、content，其中content不包括其他部分，height和width指的就是content的高与宽</p>
+</li>
+<li><p><code>盒子模型</code> margin、content（其中包含了border和padding），height和width指的是包含了border和padding的content的高与宽</p>
+</li>
+</ul>
 <p>注意，如果我们没有给文档加上DOTYPE声明，则各浏览器会以自己的理解去解析文档，IE浏览器会把盒子解析成IE盒子</p>
 </li>
-<li><h6 id="link和-import的区别？"><a href="#link和-import的区别？" class="headerlink" title="link和@import的区别？"></a>link和@import的区别？</h6><p>1、link属于XHTML标签，而@import是CSS提供的一种方式；</p>
-<p>2、加载的顺序。当一个页面被加载的时候，link引用的CSS会同时被加载，而@import引用的CSS会等到页面全部下载完之后再被加载；</p>
-<p>3、兼容性的差别。@import是CSS2.1提出的，所以老版本浏览器不支持，只有在IE5以上才能识别，而link无此问题；</p>
-<p>4、使用DOM去控制样式的差别，当使用JavaScript去控制DOM改变样式的时候，只能使用link标签，因为@import不受DOM的控制<br>注意：@import要写在其他样式的开头前，否则对于？？浏览器而言它会被忽略</p>
+<li><h6 id="link和-import的区别？"><a href="#link和-import的区别？" class="headerlink" title="link和@import的区别？"></a>link和@import的区别？</h6><ul>
+<li>link属于XHTML标签，而@import是CSS提供的一种方式；</li>
+<li>加载的顺序。当一个页面被加载的时候，link引用的CSS会同时被加载，而@import引用的CSS会等到页面全部下载完之后再被加载；</li>
+<li>兼容性的差别。@import是CSS2.1提出的，所以老版本浏览器不支持，只有在IE5以上才能识别，而link无此问题；</li>
+<li>使用DOM去控制样式的差别，当使用JavaScript去控制DOM改变样式的时候，只能使用link标签，因为@import不受DOM的控制</li>
+<li><code>注意</code> @import要写在其他样式的开头前，否则对于？？浏览器而言它会被忽略</li>
+</ul>
 </li>
 <li><h6 id="b标签与em、strong标签的区别？"><a href="#b标签与em、strong标签的区别？" class="headerlink" title="b标签与em、strong标签的区别？"></a>b标签与em、strong标签的区别？</h6><p>b标签用于加粗字段，而em、strong用于强调文本，em可使字段变成斜体，strong可使字段加粗，且其强调程度大于em</p>
 </li>
