@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="算法,总结," />
+  <meta name="keywords" content="兼容性问题,CSS,hack," />
 
 
 
@@ -84,22 +84,16 @@
 
 
 
-<meta name="description" content="重要概念
-完全二叉树设二叉树的高度为h，除了第h层以外，其他各层的节点数都达到最大值2^(i-1)，第h层有叶子节点，并且叶子节点都是从左到右依次排布
-满二叉树">
+<meta name="description" content="关于CSS的hack手法，还有一种就是直接在选择器前面加上前缀，不同版本的IE浏览器可识别不一样的前缀。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="算法学习笔记一：二叉树">
-<meta property="og:url" content="http://yoursite.com/2016/09/04/tree-Knowledge-summary/index.html">
+<meta property="og:title" content="CSS hack之选择器前缀法">
+<meta property="og:url" content="http://yoursite.com/2016/09/19/CSShack2/index.html">
 <meta property="og:site_name" content="JS-Hao blog">
-<meta property="og:description" content="重要概念
-完全二叉树设二叉树的高度为h，除了第h层以外，其他各层的节点数都达到最大值2^(i-1)，第h层有叶子节点，并且叶子节点都是从左到右依次排布
-满二叉树">
-<meta property="og:updated_time" content="2016-09-04T03:03:47.685Z">
+<meta property="og:description" content="关于CSS的hack手法，还有一种就是直接在选择器前面加上前缀，不同版本的IE浏览器可识别不一样的前缀。">
+<meta property="og:updated_time" content="2016-09-19T08:40:04.463Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="算法学习笔记一：二叉树">
-<meta name="twitter:description" content="重要概念
-完全二叉树设二叉树的高度为h，除了第h层以外，其他各层的节点数都达到最大值2^(i-1)，第h层有叶子节点，并且叶子节点都是从左到右依次排布
-满二叉树">
+<meta name="twitter:title" content="CSS hack之选择器前缀法">
+<meta name="twitter:description" content="关于CSS的hack手法，还有一种就是直接在选择器前面加上前缀，不同版本的IE浏览器可识别不一样的前缀。">
 
 
 
@@ -120,9 +114,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/09/04/tree-Knowledge-summary/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/09/19/CSShack2/"/>
 
-  <title> 算法学习笔记一：二叉树 | JS-Hao blog </title>
+  <title> CSS hack之选择器前缀法 | JS-Hao blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -242,7 +236,7 @@
             
             
               
-                算法学习笔记一：二叉树
+                CSS hack之选择器前缀法
               
             
           </h1>
@@ -254,8 +248,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-04T10:29:58+08:00" content="2016-09-04">
-              2016-09-04
+            <time itemprop="dateCreated" datetime="2016-09-19T16:21:43+08:00" content="2016-09-19">
+              2016-09-19
             </time>
           </span>
 
@@ -282,35 +276,19 @@
       
 
       
-        <ol>
-<li><h3 id="重要概念"><a href="#重要概念" class="headerlink" title="重要概念"></a>重要概念</h3><ul>
-<li><h5 id="完全二叉树"><a href="#完全二叉树" class="headerlink" title="完全二叉树"></a>完全二叉树</h5>设二叉树的高度为h，除了第h层以外，其他各层的节点数都达到最大值<strong>2^(i-1)</strong>，第h层有叶子节点，并且叶子节点都是从左到右依次排布</li>
-<li><h5 id="满二叉树"><a href="#满二叉树" class="headerlink" title="满二叉树"></a>满二叉树</h5><a id="more"></a>
-除了叶子节点外每一个节点的度都为2且叶子节点都处于最底层的二叉树</li>
-<li><h5 id="平衡二叉树"><a href="#平衡二叉树" class="headerlink" title="平衡二叉树"></a>平衡二叉树</h5>又称为AVL树，它是一颗二叉排序树且具有以下性质：它是一颗空树或者它的左右子树的高度差的绝对值不超过1，同时左右两颗子树也是一颗平衡二叉树</li>
-<li><h5 id="节点的度"><a href="#节点的度" class="headerlink" title="节点的度"></a>节点的度</h5>节点的分支数</li>
-<li><h5 id="树的度"><a href="#树的度" class="headerlink" title="树的度"></a>树的度</h5>树中最大节点的度</li>
-<li><h5 id="森林"><a href="#森林" class="headerlink" title="森林"></a>森林</h5>指的是若干课互不相交的树的集合</li>
-<li><h5 id="有序树"><a href="#有序树" class="headerlink" title="有序树"></a>有序树</h5>指的是树中同层节点从左向右依次排序，它们之间的次序不能交换，这样的叫做有序树，否则称为无序树</li>
+        <p>关于CSS的hack手法，还有一种就是直接在选择器前面加上前缀，不同版本的IE浏览器可识别不一样的前缀。<br><a id="more"></a></p>
+<ul>
+<li><code>@media screen\9</code> 该前缀可被IE6和7识别</li>
+<li><code>@media \0screen</code> 可被IE8识别</li>
+<li><code>@media \0screen\,screen\9</code> IE6、7、8可识别（逗号’,’左右两边不能有空格，否则会出问题）</li>
+<li><code>@media screen\0</code> IE8—11都可以识别</li>
+<li><code>@media screen and (min-width: 0\0)</code> IE9、10、11可识别</li>
+<li><code>@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none)</code> IE10和11可识别</li>
 </ul>
-</li>
-<li><h3 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h3><ul>
-<li>二叉树的第i层至多有<strong>2^(i-1)</strong>个节点；</li>
-<li>深度为k的二叉树最多有<strong>2^k-1</strong>个节点，最少有k个节点</li>
-<li>对于任何一棵二叉树，如果其终端节点数为n0，度为2的节点数为n2，则存在关系<strong>n0=n2+1</strong></li>
-<li>具有n个节点的完全二叉树的深度为<strong>int(log2n)+1</strong>(以2为底10的对数) 或者是<strong>log2(n+1)</strong>?? ，待验证</li>
-<li>若对含n个节点的完全二叉树进行顺序方式存储，则结点之间有如下关系：<ul>
-<li>若节点的编号为i，则其父节点的编号为<strong>i/2</strong></li>
-<li>若<strong>2*i &lt;= n</strong>，则其左节点的编号为<strong>2*i</strong>，若<strong>2*i &gt; n</strong>，则无左节点</li>
-<li>若<strong>2*i+1 &lt;= n</strong>，则其右节点的编号为<strong>2*i+1</strong>，若<strong>2*i+1 &gt; n</strong>，则无右节点</li>
-</ul>
-</li>
-<li>给定n个节点，能构成h(N)种不同的二叉树，其中h()为<a href="http://baike.baidu.com/view/2499752.htm" target="_blank" rel="external">卡特兰数</a>的第n项，<strong>h(n)=C(2*n, n)/(n+1)</strong></li>
-<li>设有i个枝点，I为所有枝点的道路长度总和，J为叶的道路长度总和<strong>J=I+2i</strong></li>
-</ul>
-</li>
-</ol>
-<p>3.存储结构<br>关于存储结构，可以看这篇博客<a href="http://www.cnblogs.com/pengyingh/articles/2396466.html" target="_blank" rel="external">二叉树的存储结构</a></p>
+<p><strong>举栗说明</strong>：</p>
+<p>HTML部分：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ol</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"style1"</span>&gt;</span>IE6、7可识别，粉色<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"style2"</span>&gt;</span>IE8可识别，粉色<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"style3"</span>&gt;</span>IE6—8可识别，粉色<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"style4"</span>&gt;</span>IE8—11可识别，粉色<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"style5"</span>&gt;</span>IE9—11有效，粉色<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"style6"</span>&gt;</span>IE10、11有效, 粉色<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ol</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>CSSt部分：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">@<span class="keyword">media</span> screen\<span class="number">9</span> &#123;</div><div class="line">    <span class="selector-class">.style1</span> &#123;</div><div class="line">		<span class="attribute">color</span>: pink;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">@<span class="keyword">media</span> \<span class="number">0s</span>creen &#123;</div><div class="line">	<span class="selector-class">.style2</span> &#123;</div><div class="line">		<span class="attribute">color</span>: pink;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">@<span class="keyword">media</span> \<span class="number">0s</span>creen\,screen\<span class="number">9</span> &#123;  <span class="comment">/* 逗号左右不可以有空格哦 */</span></div><div class="line">	<span class="selector-class">.style3</span> &#123;</div><div class="line">		<span class="attribute">color</span>: pink;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">@<span class="keyword">media</span> screen\<span class="number">0</span> &#123;</div><div class="line">	<span class="selector-class">.style4</span> &#123;</div><div class="line">		<span class="attribute">color</span>: pink;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">@<span class="keyword">media</span> screen and (min-width: <span class="number">0</span>\<span class="number">0</span>) &#123;</div><div class="line">	<span class="selector-class">.style5</span> &#123;</div><div class="line">		<span class="attribute">color</span>: pink;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">@<span class="keyword">media</span> screen and (-ms-high-contrast: active), (-ms-high-contrast: none) &#123;</div><div class="line">	<span class="selector-class">.style6</span> &#123;</div><div class="line">		<span class="attribute">color</span>: pink;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>把这段代码复制到你的文本，打开不同版本的IE浏览器，就可以看到不同的效果了:)</p>
 
       
     </div>
@@ -333,9 +311,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/算法/" rel="tag">#算法</a>
+            <a href="/tags/兼容性问题/" rel="tag">#兼容性问题</a>
           
-            <a href="/tags/总结/" rel="tag">#总结</a>
+            <a href="/tags/CSS/" rel="tag">#CSS</a>
+          
+            <a href="/tags/hack/" rel="tag">#hack</a>
           
         </div>
       
@@ -344,17 +324,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/09/02/create-BST-by-using-js/" rel="next" title="js实现常见算法与数据结构一：二叉查找树">
-                <i class="fa fa-chevron-left"></i> js实现常见算法与数据结构一：二叉查找树
+              <a href="/2016/09/18/CSShack/" rel="next" title="CSS hack之CSS属性前缀法">
+                <i class="fa fa-chevron-left"></i> CSS hack之CSS属性前缀法
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/09/18/CSShack/" rel="prev" title="CSS hack之CSS属性前缀法">
-                CSS hack之CSS属性前缀法 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -461,7 +437,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#重要概念"><span class="nav-number">1.</span> <span class="nav-text">重要概念</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#完全二叉树"><span class="nav-number">1.0.1.</span> <span class="nav-text">完全二叉树</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#满二叉树"><span class="nav-number">1.0.2.</span> <span class="nav-text">满二叉树</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#平衡二叉树"><span class="nav-number">1.0.3.</span> <span class="nav-text">平衡二叉树</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#节点的度"><span class="nav-number">1.0.4.</span> <span class="nav-text">节点的度</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#树的度"><span class="nav-number">1.0.5.</span> <span class="nav-text">树的度</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#森林"><span class="nav-number">1.0.6.</span> <span class="nav-text">森林</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#有序树"><span class="nav-number">1.0.7.</span> <span class="nav-text">有序树</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#性质"><span class="nav-number">2.</span> <span class="nav-text">性质</span></a></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
         </section>
