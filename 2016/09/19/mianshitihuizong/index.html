@@ -90,7 +90,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/09/19/mianshitihuizong/index.html">
 <meta property="og:site_name" content="JS-Hao blog">
 <meta property="og:description" content="校招大军已经在浩浩荡荡地进行中了，我也是参与校招的其中一份子（属于增大分母坐吃等死型人才），在面试过程中面试官不乏会提出各种各样的技术问题来难倒我们，往往很多应聘者就挂在了技术面这一难关。为了能够顺利地通过面试，本人特地上网搜索罗列出了一些面试题以及答案">
-<meta property="og:updated_time" content="2016-09-20T08:53:13.563Z">
+<meta property="og:updated_time" content="2016-09-20T13:28:48.273Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端面试题不完全汇总">
 <meta name="twitter:description" content="校招大军已经在浩浩荡荡地进行中了，我也是参与校招的其中一份子（属于增大分母坐吃等死型人才），在面试过程中面试官不乏会提出各种各样的技术问题来难倒我们，往往很多应聘者就挂在了技术面这一难关。为了能够顺利地通过面试，本人特地上网搜索罗列出了一些面试题以及答案">
@@ -317,7 +317,61 @@
 <li>window.onload会在页面包含图片等文件在内的所有元素都加载完成时调用</li>
 </ul>
 </li>
-<li><h6 id="style标签放在head与body的区别？"><a href="#style标签放在head与body的区别？" class="headerlink" title="style标签放在head与body的区别？"></a>style标签放在head与body的区别？</h6></li>
+<li><h6 id="CSS选择符有哪些？哪些属性可以继承？优先级算法如何计算？CSS3新增的伪类有哪些？"><a href="#CSS选择符有哪些？哪些属性可以继承？优先级算法如何计算？CSS3新增的伪类有哪些？" class="headerlink" title="CSS选择符有哪些？哪些属性可以继承？优先级算法如何计算？CSS3新增的伪类有哪些？"></a>CSS选择符有哪些？哪些属性可以继承？优先级算法如何计算？CSS3新增的伪类有哪些？</h6><ul>
+<li><code>CSS选择符</code> ID选择器（#myid），类选择器（.classname），标签选择器（div），相邻选取器（div+p），子选择器（ul &gt; li），通配符（*），属性选择器（a[rel = ‘external’]），伪类选择器（a:hover）</li>
+<li><code>可继承</code> font-sizen font-family color </li>
+<li><code>不可继承</code> border padding margin width height</li>
+<li><code>优先级</code> 就近原则，样式定义最近者为准，载入样式以最后载入的定位为准，!important &gt; 内联 &gt; id &gt; class &gt; tag</li>
+<li><code>新增伪类</code> p:first-of-type p:last-of-type p:only-of-type p:nth-child(1) :enabled :disabled :checked等</li>
+</ul>
+</li>
+<li><h6 id="如何居中一个div，如何居中一个浮动的元素？"><a href="#如何居中一个div，如何居中一个浮动的元素？" class="headerlink" title="如何居中一个div，如何居中一个浮动的元素？"></a>如何居中一个div，如何居中一个浮动的元素？</h6><ul>
+<li><p><code>居中div</code> 给div设置一个宽度，同时添加margin: 0 auto</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">div</span> &#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">200px</span>;</div><div class="line">    <span class="attribute">margin</span>: <span class="number">0</span> auto;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p><code>居中浮动元素</code> 先为元素设置宽度，使其浮动后向右偏移50%的同时左外边距向左偏移其宽度的一半，注意，父元素应该改成相对定位或绝对定位</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">div</span> &#123;</div><div class="line">    <span class="attribute">position</span>: absolute;</div><div class="line">    <span class="attribute">width</span>: <span class="number">400px</span>;</div><div class="line">    <span class="attribute">margin-left</span>: -<span class="number">200px</span>;</div><div class="line">    <span class="attribute">left</span>: <span class="number">50%</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><h6 id="浏览器的内核分别是什么？经常遇到的浏览器的兼容性问题有哪些？解决方法是什么？常用的hack技巧有哪些"><a href="#浏览器的内核分别是什么？经常遇到的浏览器的兼容性问题有哪些？解决方法是什么？常用的hack技巧有哪些" class="headerlink" title="浏览器的内核分别是什么？经常遇到的浏览器的兼容性问题有哪些？解决方法是什么？常用的hack技巧有哪些"></a>浏览器的内核分别是什么？经常遇到的浏览器的兼容性问题有哪些？解决方法是什么？常用的hack技巧有哪些</h6><ul>
+<li><code>内核</code> Trident（IE）、Gecko（Firefox）、Webkit（Safari、Chrome）、Presto（Opera）</li>
+<li>常见的浏览器兼容性问题、解决方法将以一个专题的形式在后续放出~</li>
+<li><code>hack手法</code> 关于hack，我的博客的其他文章已经提到：<ul>
+<li><a href="http://js-hao.cn/2016/09/18/CSShack/" target="_blank" rel="external">CSS hack之CSS属性前缀法</a></li>
+<li><a href="http://js-hao.cn/2016/09/19/CSShack2/" target="_blank" rel="external">CSS hack之选择器前缀法</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><h6 id="HTML5-CSS3有哪些新特性？移除了哪些元素？如何处理HTML5新标签的浏览器兼容性问题？如何区分HTML和HTML5？"><a href="#HTML5-CSS3有哪些新特性？移除了哪些元素？如何处理HTML5新标签的浏览器兼容性问题？如何区分HTML和HTML5？" class="headerlink" title="HTML5\CSS3有哪些新特性？移除了哪些元素？如何处理HTML5新标签的浏览器兼容性问题？如何区分HTML和HTML5？"></a>HTML5\CSS3有哪些新特性？移除了哪些元素？如何处理HTML5新标签的浏览器兼容性问题？如何区分HTML和HTML5？</h6><ul>
+<li><p><code>HTML5新特性</code></p>
+<ul>
+<li>用于绘画的canvas元素</li>
+<li>用于媒体播放的audio元素和video元素</li>
+<li>本地离线存储:localStorage长期存储数据，浏览器关闭后数据不丢失，sessionStorage的数据在浏览器关闭后自动删除</li>
+<li>语义化更好的内容元素，如article、footer、header、nav、section</li>
+<li>新的表单元素：datalist、keygen、output</li>
+<li>新的input类型，如date、time、email、url、search</li>
+<li>新的技术：Web Worker、server-sent event、Geolocation</li>
+</ul>
+</li>
+<li><p><code>CSS3新特性</code> 实现圆角、阴影、对文字加特效，增加了更多的CSS选择器，多背景以及RGBA</p>
+</li>
+<li><code>移除的元素</code><ul>
+<li>纯表现的元素：basefont、big、center、font、s、strike、tt、u</li>
+<li>对可用性产生负面影响的元素：frame、frameset、noframes</li>
+</ul>
+</li>
+<li><p><code>旧浏览器兼容HTML5</code></p>
+<ul>
+<li>通过document.createElement的方法产生标签，这样可以让浏览器识别标签和CSS引擎知道它的存在（要放在head中，因为必须在元素解析前得知道它的存在，否则无效）</li>
+<li><p>使用html5shiv，这套成熟的框架可以让浏览器和引擎提前知道新标签的存在，同样也需要在head中引入</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!--if lt IE 9]&gt;</span></div><div class="line">    　　&lt;script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"&gt;&lt;/script&gt;</div><div class="line">    　　&lt;![endif]--&gt;</div></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</li>
 </ol>
 
       
@@ -465,7 +519,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-6"><a class="nav-link" href="#lt-DOCTYPE-gt-的作用是什么？有哪些模式？各自有什么特点？如何触发这些模式？区分它们有啥意义？"><span class="nav-number">1.</span> <span class="nav-text"><!DOCTYPE>的作用是什么？有哪些模式？各自有什么特点？如何触发这些模式？区分它们有啥意义？</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#行内元素有哪些？块级元素有哪些？空（void）元素又有哪些？"><span class="nav-number">2.</span> <span class="nav-text">行内元素有哪些？块级元素有哪些？空（void）元素又有哪些？</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#CSS的盒子模型有哪些，有什么区别？"><span class="nav-number">3.</span> <span class="nav-text">CSS的盒子模型有哪些，有什么区别？</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#link和-import的区别？"><span class="nav-number">4.</span> <span class="nav-text">link和@import的区别？</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#b标签与em、strong标签的区别？"><span class="nav-number">5.</span> <span class="nav-text">b标签与em、strong标签的区别？</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#script标签放在head与body的区别？"><span class="nav-number">6.</span> <span class="nav-text">script标签放在head与body的区别？</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#document-ready与window-onload的区别？"><span class="nav-number">7.</span> <span class="nav-text">$(document).ready与window.onload的区别？</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#style标签放在head与body的区别？"><span class="nav-number">8.</span> <span class="nav-text">style标签放在head与body的区别？</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-6"><a class="nav-link" href="#lt-DOCTYPE-gt-的作用是什么？有哪些模式？各自有什么特点？如何触发这些模式？区分它们有啥意义？"><span class="nav-number">1.</span> <span class="nav-text"><!DOCTYPE>的作用是什么？有哪些模式？各自有什么特点？如何触发这些模式？区分它们有啥意义？</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#行内元素有哪些？块级元素有哪些？空（void）元素又有哪些？"><span class="nav-number">2.</span> <span class="nav-text">行内元素有哪些？块级元素有哪些？空（void）元素又有哪些？</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#CSS的盒子模型有哪些，有什么区别？"><span class="nav-number">3.</span> <span class="nav-text">CSS的盒子模型有哪些，有什么区别？</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#link和-import的区别？"><span class="nav-number">4.</span> <span class="nav-text">link和@import的区别？</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#b标签与em、strong标签的区别？"><span class="nav-number">5.</span> <span class="nav-text">b标签与em、strong标签的区别？</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#script标签放在head与body的区别？"><span class="nav-number">6.</span> <span class="nav-text">script标签放在head与body的区别？</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#document-ready与window-onload的区别？"><span class="nav-number">7.</span> <span class="nav-text">$(document).ready与window.onload的区别？</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#CSS选择符有哪些？哪些属性可以继承？优先级算法如何计算？CSS3新增的伪类有哪些？"><span class="nav-number">8.</span> <span class="nav-text">CSS选择符有哪些？哪些属性可以继承？优先级算法如何计算？CSS3新增的伪类有哪些？</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#如何居中一个div，如何居中一个浮动的元素？"><span class="nav-number">9.</span> <span class="nav-text">如何居中一个div，如何居中一个浮动的元素？</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#浏览器的内核分别是什么？经常遇到的浏览器的兼容性问题有哪些？解决方法是什么？常用的hack技巧有哪些"><span class="nav-number">10.</span> <span class="nav-text">浏览器的内核分别是什么？经常遇到的浏览器的兼容性问题有哪些？解决方法是什么？常用的hack技巧有哪些</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#HTML5-CSS3有哪些新特性？移除了哪些元素？如何处理HTML5新标签的浏览器兼容性问题？如何区分HTML和HTML5？"><span class="nav-number">11.</span> <span class="nav-text">HTML5\CSS3有哪些新特性？移除了哪些元素？如何处理HTML5新标签的浏览器兼容性问题？如何区分HTML和HTML5？</span></a></li></ol></div>
             
           </div>
         </section>
