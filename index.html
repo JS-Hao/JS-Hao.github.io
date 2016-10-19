@@ -238,6 +238,114 @@
             
               
                 
+                <a class="post-title-link" href="/2016/10/19/exports-moduleExports/" itemprop="url">
+                  理解module.exports与exports区别的正确姿势
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-19T11:28:05+08:00" content="2016-10-19">
+              2016-10-19
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>对于nodejs初学者来说，有个问题想必是必须会遇到的：在很多书籍或者教程的例子中，对于一个模块的最终输出，<br><!-- mort -->有的使用形如以下的代码：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports = XXX</div></pre></td></tr></table></figure></p>
+<p>或者是这样的：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">exports.XXX = XXX</div></pre></td></tr></table></figure></p>
+<p>那么问题来了，这两者到底有啥区别呢？？不会是同一个东西吧？认真的学生也许马上会google查阅相关资料，但是，一般而言大部分资料都讲得很（kan）详（bu）细（dong）；别急伙计，不如听下我对exports和module.exports之间的理解，说不定能够帮助到你 b(￣▽￣)db</p>
+<ul>
+<li><h5 id="js文件执行或require的时候，后台究竟做了些啥"><a href="#js文件执行或require的时候，后台究竟做了些啥" class="headerlink" title="js文件执行或require的时候，后台究竟做了些啥"></a>js文件执行或require的时候，后台究竟做了些啥</h5></li>
+</ul>
+<p>先给结论再详细说明。你可以这样简单地理解：当我们写好一个模块（假设叫hello.js），别的文件需要通过require去引用它时，或者直接执行hello.js这个文件时，后台偷偷执行了以下代码：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> <span class="built_in">module</span> = <span class="keyword">new</span> Module();</div><div class="line"><span class="keyword">var</span> exports = <span class="built_in">module</span>.exports</div></pre></td></tr></table></figure></p>
+<p>首先，在node中定义了一个叫Module的类，每当文件执行或者require的时候，后台都会给这个文件创建一个Module的实例，并把它命名为module，这样当你在模块里写了一堆的代码并打算将这些代码输出到别的文件上使用时，你所写的module.exports=XXX中的module，其实就是指上述的module，而module.exports只不过是module对象的其中一个属性，接着，后台再定义了一个叫exports的变量，它引用的恰恰就是module.exports所引用的对象。</p>
+<p>不信的话，我们可以把下面的代码复制到hello.js文件中并执行，看下控制台中的输出结果：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="built_in">module</span>);</div></pre></td></tr></table></figure></p>
+<p>运行，结果如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">Module &#123;</div><div class="line">  id: <span class="string">'.'</span>,</div><div class="line">  exports: &#123;&#125;,</div><div class="line">  parent: <span class="literal">null</span>,</div><div class="line">  filename: <span class="string">'C:\\Users\\Administrator\\Desktop\\技术\\test.js'</span>,</div><div class="line">  loaded: <span class="literal">false</span>,</div><div class="line">  children: [],</div><div class="line">  paths:</div><div class="line">   [ <span class="string">'C:\\Users\\Administrator\\Desktop\\技术\\node_modules'</span>,</div><div class="line">     <span class="string">'C:\\Users\\Administrator\\Desktop\\node_modules'</span>,</div><div class="line">     <span class="string">'C:\\Users\\Administrator\\node_modules'</span>,</div><div class="line">     <span class="string">'C:\\Users\\node_modules'</span>,</div><div class="line">     <span class="string">'C:\\node_modules'</span> ] &#125;</div></pre></td></tr></table></figure></p>
+<p>看到了吧，里面有一个叫exports的属性。</p>
+<p>在这段代码中，我们并没有显示地去定义一个module，若后台并没有创建实例的话，结果应该是输出undefined的，这恰恰验证了我们以上的设想。现在我们继续验证，我们通过以下代码给module.exports加点属性：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="built_in">module</span>);</div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports.name = <span class="string">'jshao'</span>;</div><div class="line">exports.age = <span class="string">'22'</span>;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">module</span>);</div></pre></td></tr></table></figure></p>
+<p>OK，我们继续运行这个文件：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">$ node hellow.js</div><div class="line">Module &#123;</div><div class="line">  id: <span class="string">'.'</span>,</div><div class="line">  exports: &#123;&#125;,</div><div class="line">  parent: <span class="literal">null</span>,</div><div class="line">  filename: <span class="string">'C:\\Users\\Administrator\\Desktop\\技术\\test.js'</span>,</div><div class="line">  loaded: <span class="literal">false</span>,</div><div class="line">  children: [],</div><div class="line">  paths:</div><div class="line">   [ <span class="string">'C:\\Users\\Administrator\\Desktop\\技术\\node_modules'</span>,</div><div class="line">     <span class="string">'C:\\Users\\Administrator\\Desktop\\node_modules'</span>,</div><div class="line">     <span class="string">'C:\\Users\\Administrator\\node_modules'</span>,</div><div class="line">     <span class="string">'C:\\Users\\node_modules'</span>,</div><div class="line">     <span class="string">'C:\\node_modules'</span> ] &#125;</div><div class="line">     </div><div class="line">Module &#123;</div><div class="line">  id: <span class="string">'.'</span>,</div><div class="line">  exports: &#123; name: <span class="string">'jshao'</span>, age: <span class="string">'22'</span> &#125;,</div><div class="line">  parent: <span class="literal">null</span>,</div><div class="line">  filename: <span class="string">'C:\\Users\\Administrator\\Desktop\\技术\\test.js'</span>,</div><div class="line">  loaded: <span class="literal">false</span>,</div><div class="line">  children: [],</div><div class="line">  paths:</div><div class="line">   [ <span class="string">'C:\\Users\\Administrator\\Desktop\\技术\\node_modules'</span>,</div><div class="line">     <span class="string">'C:\\Users\\Administrator\\Desktop\\node_modules'</span>,</div><div class="line">     <span class="string">'C:\\Users\\Administrator\\node_modules'</span>,</div><div class="line">     <span class="string">'C:\\Users\\node_modules'</span>,</div><div class="line">     <span class="string">'C:\\node_modules'</span> ] &#125;</div></pre></td></tr></table></figure></p>
+<p>发现什么了吗？这个对象含有name和age，这说明module.exports和exports引用的是同一个对象。</p>
+<p>讲到这里，相信你也大概了解了exports与module.exports的区别，所以在很多教程和书籍中都不建议重写exports，这样会失去对module.exports所引用对象的引用，因为文件最终输出的是module，所以重写意味着重写后的对象是无法输出的：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//正常输出</span></div><div class="line"><span class="built_in">module</span>.exports.sayname = <span class="function"><span class="keyword">function</span>(<span class="params">name</span>) </span>&#123;</div><div class="line">    alert(name);</div><div class="line">&#125; </div><div class="line"></div><div class="line"><span class="comment">//重写对象，无法输出下面的对象</span></div><div class="line">exports = &#123;</div><div class="line">    age: <span class="number">22</span>,</div><div class="line">    sayAge = <span class="function"><span class="keyword">function</span>(<span class="params">age</span>) </span>&#123;</div><div class="line">        alert(age);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/09/19/mianshitihuizong/" itemprop="url">
                   前端面试题不完全汇总
                 </a>
@@ -837,7 +945,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-count">7</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -847,7 +955,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
