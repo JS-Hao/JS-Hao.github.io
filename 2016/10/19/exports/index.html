@@ -84,22 +84,16 @@
 
 
 
-<meta name="description" content="对于nodejs初学者来说，有个问题想必是必须会遇到的：在很多书籍或者教程的例子中，对于一个模块的最终输出，有的使用形如以下的代码：1module.exports = XXX
-或者是这样的：1exports.XXX = XXX
-那么问题来了，这两者到底有啥区别呢？？不会是同一个东西吧？认真的学生也许马上会google查阅相关资料，但是，一般而言大部分资料都讲得很（kan）详（bu）细（dong）；">
+<meta name="description" content="对于nodejs初学者来说，有个问题想必是必须会遇到的：在很多书籍或者教程的例子中，对于一个模块的最终输出，">
 <meta property="og:type" content="article">
 <meta property="og:title" content="理解module.exports与exports区别的正确姿势">
-<meta property="og:url" content="http://yoursite.com/2016/10/19/exports-moduleExports/index.html">
+<meta property="og:url" content="http://yoursite.com/2016/10/19/exports/index.html">
 <meta property="og:site_name" content="JS-Hao blog">
-<meta property="og:description" content="对于nodejs初学者来说，有个问题想必是必须会遇到的：在很多书籍或者教程的例子中，对于一个模块的最终输出，有的使用形如以下的代码：1module.exports = XXX
-或者是这样的：1exports.XXX = XXX
-那么问题来了，这两者到底有啥区别呢？？不会是同一个东西吧？认真的学生也许马上会google查阅相关资料，但是，一般而言大部分资料都讲得很（kan）详（bu）细（dong）；">
-<meta property="og:updated_time" content="2016-10-19T14:03:15.856Z">
+<meta property="og:description" content="对于nodejs初学者来说，有个问题想必是必须会遇到的：在很多书籍或者教程的例子中，对于一个模块的最终输出，">
+<meta property="og:updated_time" content="2016-10-19T14:08:52.192Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="理解module.exports与exports区别的正确姿势">
-<meta name="twitter:description" content="对于nodejs初学者来说，有个问题想必是必须会遇到的：在很多书籍或者教程的例子中，对于一个模块的最终输出，有的使用形如以下的代码：1module.exports = XXX
-或者是这样的：1exports.XXX = XXX
-那么问题来了，这两者到底有啥区别呢？？不会是同一个东西吧？认真的学生也许马上会google查阅相关资料，但是，一般而言大部分资料都讲得很（kan）详（bu）细（dong）；">
+<meta name="twitter:description" content="对于nodejs初学者来说，有个问题想必是必须会遇到的：在很多书籍或者教程的例子中，对于一个模块的最终输出，">
 
 
 
@@ -120,7 +114,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/10/19/exports-moduleExports/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/10/19/exports/"/>
 
   <title> 理解module.exports与exports区别的正确姿势 | JS-Hao blog </title>
 </head>
@@ -254,7 +248,7 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-19T11:28:05+08:00" content="2016-10-19">
+            <time itemprop="dateCreated" datetime="2016-10-19T22:05:50+08:00" content="2016-10-19">
               2016-10-19
             </time>
           </span>
@@ -282,7 +276,7 @@
       
 
       
-        <p>对于nodejs初学者来说，有个问题想必是必须会遇到的：在很多书籍或者教程的例子中，对于一个模块的最终输出，<br><!-- mort -->有的使用形如以下的代码：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports = XXX</div></pre></td></tr></table></figure></p>
+        <p>对于nodejs初学者来说，有个问题想必是必须会遇到的：在很多书籍或者教程的例子中，对于一个模块的最终输出，<br><a id="more"></a><br>有的使用形如以下的代码：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports = XXX</div></pre></td></tr></table></figure></p>
 <p>或者是这样的：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">exports.XXX = XXX</div></pre></td></tr></table></figure></p>
 <p>那么问题来了，这两者到底有啥区别呢？？不会是同一个东西吧？认真的学生也许马上会google查阅相关资料，但是，一般而言大部分资料都讲得很（kan）详（bu）细（dong）；别急伙计，不如听下我对exports和module.exports之间的理解，说不定能够帮助到你 b(￣▽￣)db</p>
 <ul>
@@ -328,17 +322,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/09/19/mianshitihuizong/" rel="next" title="前端面试题不完全汇总">
-                <i class="fa fa-chevron-left"></i> 前端面试题不完全汇总
+              <a href="/2016/10/19/exports-moduleExports/" rel="next" title="理解module.exports与exports区别的正确姿势">
+                <i class="fa fa-chevron-left"></i> 理解module.exports与exports区别的正确姿势
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/10/19/exports/" rel="prev" title="理解module.exports与exports区别的正确姿势">
-                理解module.exports与exports区别的正确姿势 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
