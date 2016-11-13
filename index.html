@@ -238,8 +238,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/10/19/exports/" itemprop="url">
-                  理解module.exports与exports区别的正确姿势
+                <a class="post-title-link" href="/2016/11/12/freemarker模板开发指令总结/" itemprop="url">
+                  未命名
                 </a>
               
             
@@ -252,8 +252,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-19T22:05:50+08:00" content="2016-10-19">
-              2016-10-19
+            <time itemprop="dateCreated" datetime="2016-11-12T20:46:45+08:00" content="2016-11-12">
+              2016-11-12
             </time>
           </span>
 
@@ -281,9 +281,113 @@
 
       
         
-          <p>对于nodejs初学者来说，有个问题想必是必须会遇到的：在很多书籍或者教程的例子中，对于一个模块的最终输出，<br>
+          
+            <h6 id="name"><a href="#name" class="headerlink" title="${name}"></a>${name}</h6><p>插值：引用后台给定的数据，将用实际数据替代模板中<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">注意，插值只能在文本中和字符串中使用，而不能内嵌到其他指令中。</div><div class="line">###### if指令</div><div class="line">```html</div><div class="line">&lt;#if condition&gt;</div><div class="line">    &lt;#-- if condition is true --&gt;</div><div class="line">&lt;#else&gt;</div><div class="line">    &lt;#-- if condition is false --&gt;</div><div class="line">&lt;/#if&gt;</div></pre></td></tr></table></figure></p>
+<h6 id="list指令"><a href="#list指令" class="headerlink" title="list指令"></a>list指令</h6><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">#list</span> <span class="attr">animals</span> <span class="attr">as</span> <span class="attr">animal</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>$&#123;animals.name&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">#list</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div></pre></td></tr></table></figure>
+<h6 id="include指令"><a href="#include指令" class="headerlink" title="include指令"></a>include指令</h6><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>版权声明<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">#include</span> "/<span class="attr">copyright_footer.html</span>"&gt;</span></div></pre></td></tr></table></figure>
+<h6 id="与"><a href="#与" class="headerlink" title="!与??"></a>!与??</h6><p>在实际开发过程中，往往会出现变量不存在的情况，而freemarker一般是无法容忍变量的不存在的情况的，因此，我们应该事先定义当变量不存在的替代值，防止报错的发生。</p>
+<p><strong>! :</strong><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>$&#123;name!"hello world"&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>当变量name不存在时，将会用hello world替代.</p>
+<p><strong>?? :</strong><br>一般<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">```html</div><div class="line">&lt;#if user??&gt;&lt;h1&gt;Welcome $&#123;user&#125;!&lt;/h1&gt;&lt;/#if&gt;</div></pre></td></tr></table></figure></p>
+<p>当<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">*注意*：在多级访问的变量中，如```&lt;p&gt;$&#123;user.man.name!&quot;no man&quot;&#125;```，仅仅当user和man存在而name不存在的时候才会用“no man”替代该变量，倘若user和man中有一个变量不存在，而会报错而停止，因此正确做法应该改为：</div><div class="line">```html</div><div class="line">&lt;p&gt;$&#123;(user.man.name)!&quot;no man&quot;&#125;</div></pre></td></tr></table></figure></p>
+<p>使用括号括住多级变量，可避免上述现象的发生，该情况也适用于<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">###### 关于大小写问题</div><div class="line">这里需要留意的是，ftl标签是区分大小写的，这意味着list是指令而List并不是，同时```$&#123;name&#125;```和```$&#123;Name&#125;```是两码事</div><div class="line"></div><div class="line">###### 关于指令间的空白</div><div class="line">freemarker会自动忽略指令中的空白，因此以下的代码是完全没有问题的：</div><div class="line">```html</div><div class="line">&lt;#list </div><div class="line">    animals </div><div class="line">    as </div><div class="line">    animal</div><div class="line">&gt;</div><div class="line">code</div><div class="line">&lt;/#list&gt;</div></pre></td></tr></table></figure></p>
+<p>但需注意的是，在<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">###### 原生字符串</div><div class="line">在freemarker中，```$ &#123; #```等有着特殊的含义，一般是无法打印出来的，最典型的例子是```&quot;hello $&#123;user&#125;&quot;```，若想打印```$ &#123; #```，则可以使用原生字符串，原生字符串就是在普通字符串的引号前加上字母r：</div><div class="line">```html</div><div class="line">$&#123;r&quot;$&#123;user&#125;&quot;&#125;</div></pre></td></tr></table></figure></p>
+<p>以上插值输出的结果为<code>${user}</code></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/11/09/20161109-backbone-router/" itemprop="url">
+                  20161109_backbone_router
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-09T20:37:53+08:00" content="2016-11-09">
+              2016-11-09
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>由于工作项目的需要，最近在撸一个很古老的框架——backbone，不查不知道，一查吓一跳，在google过程中发现其实关于backbone的资料还是蛮少的= =，所以还是决定多多少少记录些自己在实践过程中发现的坑，防止来日再踩。<br>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/10/19/exports/#more" rel="contents">
+            <a class="btn" href="/2016/11/09/20161109-backbone-router/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -334,7 +438,7 @@
             
               
                 
-                <a class="post-title-link" href="/2016/10/19/exports-moduleExports/" itemprop="url">
+                <a class="post-title-link" href="/2016/10/19/exports/" itemprop="url">
                   理解module.exports与exports区别的正确姿势
                 </a>
               
@@ -348,7 +452,7 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-19T11:28:05+08:00" content="2016-10-19">
+            <time itemprop="dateCreated" datetime="2016-10-19T22:05:50+08:00" content="2016-10-19">
               2016-10-19
             </time>
           </span>
@@ -377,24 +481,12 @@
 
       
         
-          
-            <p>对于nodejs初学者来说，有个问题想必是必须会遇到的：在很多书籍或者教程的例子中，对于一个模块的最终输出，<br><!-- mort -->有的使用形如以下的代码：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports = XXX</div></pre></td></tr></table></figure></p>
-<p>或者是这样的：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">exports.XXX = XXX</div></pre></td></tr></table></figure></p>
-<p>那么问题来了，这两者到底有啥区别呢？？不会是同一个东西吧？认真的学生也许马上会google查阅相关资料，但是，一般而言大部分资料都讲得很（kan）详（bu）细（dong）；别急伙计，不如听下我对exports和module.exports之间的理解，说不定能够帮助到你 b(￣▽￣)db</p>
-<ul>
-<li><h5 id="js文件执行或require的时候，后台究竟做了些啥"><a href="#js文件执行或require的时候，后台究竟做了些啥" class="headerlink" title="js文件执行或require的时候，后台究竟做了些啥"></a>js文件执行或require的时候，后台究竟做了些啥</h5></li>
-</ul>
-<p>先给结论再详细说明。你可以这样简单地理解：当我们写好一个模块（假设叫hello.js），别的文件需要通过require去引用它时，或者直接执行hello.js这个文件时，后台偷偷执行了以下代码：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> <span class="built_in">module</span> = <span class="keyword">new</span> Module();</div><div class="line"><span class="keyword">var</span> exports = <span class="built_in">module</span>.exports</div></pre></td></tr></table></figure></p>
-<p>首先，在node中定义了一个叫Module的类，每当文件执行或者require的时候，后台都会给这个文件创建一个Module的实例，并把它命名为module，这样当你在模块里写了一堆的代码并打算将这些代码输出到别的文件上使用时，你所写的module.exports=XXX中的module，其实就是指上述的module，而module.exports只不过是module对象的其中一个属性，接着，后台再定义了一个叫exports的变量，它引用的恰恰就是module.exports所引用的对象。</p>
-<p>不信的话，我们可以把下面的代码复制到hello.js文件中并执行，看下控制台中的输出结果：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="built_in">module</span>);</div></pre></td></tr></table></figure></p>
-<p>运行，结果如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">Module &#123;</div><div class="line">  id: <span class="string">'.'</span>,</div><div class="line">  exports: &#123;&#125;,</div><div class="line">  parent: <span class="literal">null</span>,</div><div class="line">  filename: <span class="string">'C:\\Users\\Administrator\\Desktop\\技术\\test.js'</span>,</div><div class="line">  loaded: <span class="literal">false</span>,</div><div class="line">  children: [],</div><div class="line">  paths:</div><div class="line">   [ <span class="string">'C:\\Users\\Administrator\\Desktop\\技术\\node_modules'</span>,</div><div class="line">     <span class="string">'C:\\Users\\Administrator\\Desktop\\node_modules'</span>,</div><div class="line">     <span class="string">'C:\\Users\\Administrator\\node_modules'</span>,</div><div class="line">     <span class="string">'C:\\Users\\node_modules'</span>,</div><div class="line">     <span class="string">'C:\\node_modules'</span> ] &#125;</div></pre></td></tr></table></figure></p>
-<p>看到了吧，里面有一个叫exports的属性。</p>
-<p>在这段代码中，我们并没有显示地去定义一个module，若后台并没有创建实例的话，结果应该是输出undefined的，这恰恰验证了我们以上的设想。现在我们继续验证，我们通过以下代码给module.exports加点属性：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="built_in">module</span>);</div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports.name = <span class="string">'jshao'</span>;</div><div class="line">exports.age = <span class="string">'22'</span>;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">module</span>);</div></pre></td></tr></table></figure></p>
-<p>OK，我们继续运行这个文件：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">$ node hellow.js</div><div class="line">Module &#123;</div><div class="line">  id: <span class="string">'.'</span>,</div><div class="line">  exports: &#123;&#125;,</div><div class="line">  parent: <span class="literal">null</span>,</div><div class="line">  filename: <span class="string">'C:\\Users\\Administrator\\Desktop\\技术\\test.js'</span>,</div><div class="line">  loaded: <span class="literal">false</span>,</div><div class="line">  children: [],</div><div class="line">  paths:</div><div class="line">   [ <span class="string">'C:\\Users\\Administrator\\Desktop\\技术\\node_modules'</span>,</div><div class="line">     <span class="string">'C:\\Users\\Administrator\\Desktop\\node_modules'</span>,</div><div class="line">     <span class="string">'C:\\Users\\Administrator\\node_modules'</span>,</div><div class="line">     <span class="string">'C:\\Users\\node_modules'</span>,</div><div class="line">     <span class="string">'C:\\node_modules'</span> ] &#125;</div><div class="line">     </div><div class="line">Module &#123;</div><div class="line">  id: <span class="string">'.'</span>,</div><div class="line">  exports: &#123; name: <span class="string">'jshao'</span>, age: <span class="string">'22'</span> &#125;,</div><div class="line">  parent: <span class="literal">null</span>,</div><div class="line">  filename: <span class="string">'C:\\Users\\Administrator\\Desktop\\技术\\test.js'</span>,</div><div class="line">  loaded: <span class="literal">false</span>,</div><div class="line">  children: [],</div><div class="line">  paths:</div><div class="line">   [ <span class="string">'C:\\Users\\Administrator\\Desktop\\技术\\node_modules'</span>,</div><div class="line">     <span class="string">'C:\\Users\\Administrator\\Desktop\\node_modules'</span>,</div><div class="line">     <span class="string">'C:\\Users\\Administrator\\node_modules'</span>,</div><div class="line">     <span class="string">'C:\\Users\\node_modules'</span>,</div><div class="line">     <span class="string">'C:\\node_modules'</span> ] &#125;</div></pre></td></tr></table></figure></p>
-<p>发现什么了吗？这个对象含有name和age，这说明module.exports和exports引用的是同一个对象。</p>
-<p>讲到这里，相信你也大概了解了exports与module.exports的区别，所以在很多教程和书籍中都不建议重写exports，这样会失去对module.exports所引用对象的引用，因为文件最终输出的是module，所以重写意味着重写后的对象是无法输出的：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//正常输出</span></div><div class="line"><span class="built_in">module</span>.exports.sayname = <span class="function"><span class="keyword">function</span>(<span class="params">name</span>) </span>&#123;</div><div class="line">    alert(name);</div><div class="line">&#125; </div><div class="line"></div><div class="line"><span class="comment">//重写对象，无法输出下面的对象</span></div><div class="line">exports = &#123;</div><div class="line">    age: <span class="number">22</span>,</div><div class="line">    sayAge = <span class="function"><span class="keyword">function</span>(<span class="params">age</span>) </span>&#123;</div><div class="line">        alert(age);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-
-          
+          <p>对于nodejs初学者来说，有个问题想必是必须会遇到的：在很多书籍或者教程的例子中，对于一个模块的最终输出，<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/10/19/exports/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -1041,7 +1133,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-count">9</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
