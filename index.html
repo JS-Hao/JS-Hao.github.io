@@ -238,8 +238,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/11/12/freemarker模板开发指令总结/" itemprop="url">
-                  未命名
+                <a class="post-title-link" href="/2016/11/16/freemarker-tips/" itemprop="url">
+                  FreeMarker开发模板语法
                 </a>
               
             
@@ -252,8 +252,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-12T20:46:45+08:00" content="2016-11-12">
-              2016-11-12
+            <time itemprop="dateCreated" datetime="2016-11-16T21:48:56+08:00" content="2016-11-16">
+              2016-11-16
             </time>
           </span>
 
@@ -281,20 +281,12 @@
 
       
         
-          
-            <h6 id="name"><a href="#name" class="headerlink" title="${name}"></a>${name}</h6><p>插值：引用后台给定的数据，将用实际数据替代模板中<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">注意，插值只能在文本中和字符串中使用，而不能内嵌到其他指令中。</div><div class="line">###### if指令</div><div class="line">```html</div><div class="line">&lt;#if condition&gt;</div><div class="line">    &lt;#-- if condition is true --&gt;</div><div class="line">&lt;#else&gt;</div><div class="line">    &lt;#-- if condition is false --&gt;</div><div class="line">&lt;/#if&gt;</div></pre></td></tr></table></figure></p>
-<h6 id="list指令"><a href="#list指令" class="headerlink" title="list指令"></a>list指令</h6><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">#list</span> <span class="attr">animals</span> <span class="attr">as</span> <span class="attr">animal</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>$&#123;animals.name&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">#list</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div></pre></td></tr></table></figure>
-<h6 id="include指令"><a href="#include指令" class="headerlink" title="include指令"></a>include指令</h6><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>版权声明<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">#include</span> "/<span class="attr">copyright_footer.html</span>"&gt;</span></div></pre></td></tr></table></figure>
-<h6 id="与"><a href="#与" class="headerlink" title="!与??"></a>!与??</h6><p>在实际开发过程中，往往会出现变量不存在的情况，而freemarker一般是无法容忍变量的不存在的情况的，因此，我们应该事先定义当变量不存在的替代值，防止报错的发生。</p>
-<p><strong>! :</strong><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>$&#123;name!"hello world"&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p>当变量name不存在时，将会用hello world替代.</p>
-<p><strong>?? :</strong><br>一般<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">```html</div><div class="line">&lt;#if user??&gt;&lt;h1&gt;Welcome $&#123;user&#125;!&lt;/h1&gt;&lt;/#if&gt;</div></pre></td></tr></table></figure></p>
-<p>当<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">*注意*：在多级访问的变量中，如```&lt;p&gt;$&#123;user.man.name!&quot;no man&quot;&#125;```，仅仅当user和man存在而name不存在的时候才会用“no man”替代该变量，倘若user和man中有一个变量不存在，而会报错而停止，因此正确做法应该改为：</div><div class="line">```html</div><div class="line">&lt;p&gt;$&#123;(user.man.name)!&quot;no man&quot;&#125;</div></pre></td></tr></table></figure></p>
-<p>使用括号括住多级变量，可避免上述现象的发生，该情况也适用于<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">###### 关于大小写问题</div><div class="line">这里需要留意的是，ftl标签是区分大小写的，这意味着list是指令而List并不是，同时```$&#123;name&#125;```和```$&#123;Name&#125;```是两码事</div><div class="line"></div><div class="line">###### 关于指令间的空白</div><div class="line">freemarker会自动忽略指令中的空白，因此以下的代码是完全没有问题的：</div><div class="line">```html</div><div class="line">&lt;#list </div><div class="line">    animals </div><div class="line">    as </div><div class="line">    animal</div><div class="line">&gt;</div><div class="line">code</div><div class="line">&lt;/#list&gt;</div></pre></td></tr></table></figure></p>
-<p>但需注意的是，在<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">###### 原生字符串</div><div class="line">在freemarker中，```$ &#123; #```等有着特殊的含义，一般是无法打印出来的，最典型的例子是```&quot;hello $&#123;user&#125;&quot;```，若想打印```$ &#123; #```，则可以使用原生字符串，原生字符串就是在普通字符串的引号前加上字母r：</div><div class="line">```html</div><div class="line">$&#123;r&quot;$&#123;user&#125;&quot;&#125;</div></pre></td></tr></table></figure></p>
-<p>以上插值输出的结果为<code>${user}</code></p>
-
-          
+          <h6 id="name"><a href="#name" class="headerlink" title="${name}"></a>${name}</h6><p>插值：引用后台给定的数据，将用实际数据替代模板中<em>${…}</em>，<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/11/16/freemarker-tips/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -343,7 +335,7 @@
               
                 
                 <a class="post-title-link" href="/2016/11/09/20161109-backbone-router/" itemprop="url">
-                  20161109_backbone_router
+                  前面有坑！之 backbone路由
                 </a>
               
             
@@ -1143,7 +1135,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

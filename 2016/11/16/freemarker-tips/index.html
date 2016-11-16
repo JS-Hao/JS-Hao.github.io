@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="模板," />
 
 
 
@@ -84,16 +84,16 @@
 
 
 
-<meta name="description" content="${name}插值：引用后台给定的数据，将用实际数据替代模板中12345678注意，插值只能在文本中和字符串中使用，而不能内嵌到其他指令中。###### if指令```html&amp;lt;#if condition&amp;gt;    &amp;lt;#-- if condition is true --&amp;gt;&amp;lt;#else&amp;gt;    &amp;lt;#-- if condition is false --&amp;gt">
+<meta name="description" content="${name}插值：引用后台给定的数据，将用实际数据替代模板中${…}，">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JS-Hao blog">
-<meta property="og:url" content="http://yoursite.com/2016/11/12/freemarker模板开发指令总结/index.html">
+<meta property="og:title" content="FreeMarker开发模板语法">
+<meta property="og:url" content="http://yoursite.com/2016/11/16/freemarker-tips/index.html">
 <meta property="og:site_name" content="JS-Hao blog">
-<meta property="og:description" content="${name}插值：引用后台给定的数据，将用实际数据替代模板中12345678注意，插值只能在文本中和字符串中使用，而不能内嵌到其他指令中。###### if指令```html&amp;lt;#if condition&amp;gt;    &amp;lt;#-- if condition is true --&amp;gt;&amp;lt;#else&amp;gt;    &amp;lt;#-- if condition is false --&amp;gt">
-<meta property="og:updated_time" content="2016-11-12T12:45:52.772Z">
+<meta property="og:description" content="${name}插值：引用后台给定的数据，将用实际数据替代模板中${…}，">
+<meta property="og:updated_time" content="2016-11-16T13:59:07.042Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JS-Hao blog">
-<meta name="twitter:description" content="${name}插值：引用后台给定的数据，将用实际数据替代模板中12345678注意，插值只能在文本中和字符串中使用，而不能内嵌到其他指令中。###### if指令```html&amp;lt;#if condition&amp;gt;    &amp;lt;#-- if condition is true --&amp;gt;&amp;lt;#else&amp;gt;    &amp;lt;#-- if condition is false --&amp;gt">
+<meta name="twitter:title" content="FreeMarker开发模板语法">
+<meta name="twitter:description" content="${name}插值：引用后台给定的数据，将用实际数据替代模板中${…}，">
 
 
 
@@ -114,9 +114,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/11/12/freemarker模板开发指令总结/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/11/16/freemarker-tips/"/>
 
-  <title>  | JS-Hao blog </title>
+  <title> FreeMarker开发模板语法 | JS-Hao blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -236,7 +236,7 @@
             
             
               
-                
+                FreeMarker开发模板语法
               
             
           </h1>
@@ -248,8 +248,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-12T20:46:45+08:00" content="2016-11-12">
-              2016-11-12
+            <time itemprop="dateCreated" datetime="2016-11-16T21:48:56+08:00" content="2016-11-16">
+              2016-11-16
             </time>
           </span>
 
@@ -276,17 +276,22 @@
       
 
       
-        <h6 id="name"><a href="#name" class="headerlink" title="${name}"></a>${name}</h6><p>插值：引用后台给定的数据，将用实际数据替代模板中<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">注意，插值只能在文本中和字符串中使用，而不能内嵌到其他指令中。</div><div class="line">###### if指令</div><div class="line">```html</div><div class="line">&lt;#if condition&gt;</div><div class="line">    &lt;#-- if condition is true --&gt;</div><div class="line">&lt;#else&gt;</div><div class="line">    &lt;#-- if condition is false --&gt;</div><div class="line">&lt;/#if&gt;</div></pre></td></tr></table></figure></p>
+        <h6 id="name"><a href="#name" class="headerlink" title="${name}"></a>${name}</h6><p>插值：引用后台给定的数据，将用实际数据替代模板中<em>${…}</em>，<br><a id="more"></a><br>注意，插值只能在文本中和字符串中使用，而不能内嵌到其他指令中。</p>
+<h6 id="if指令"><a href="#if指令" class="headerlink" title="if指令"></a>if指令</h6><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">#if</span> <span class="attr">condition</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">#--</span> <span class="attr">if</span> <span class="attr">condition</span> <span class="attr">is</span> <span class="attr">true</span> <span class="attr">--</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">#else</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">#--</span> <span class="attr">if</span> <span class="attr">condition</span> <span class="attr">is</span> <span class="attr">false</span> <span class="attr">--</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">#if</span>&gt;</span></div></pre></td></tr></table></figure>
 <h6 id="list指令"><a href="#list指令" class="headerlink" title="list指令"></a>list指令</h6><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">#list</span> <span class="attr">animals</span> <span class="attr">as</span> <span class="attr">animal</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>$&#123;animals.name&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">#list</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div></pre></td></tr></table></figure>
 <h6 id="include指令"><a href="#include指令" class="headerlink" title="include指令"></a>include指令</h6><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>版权声明<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">#include</span> "/<span class="attr">copyright_footer.html</span>"&gt;</span></div></pre></td></tr></table></figure>
 <h6 id="与"><a href="#与" class="headerlink" title="!与??"></a>!与??</h6><p>在实际开发过程中，往往会出现变量不存在的情况，而freemarker一般是无法容忍变量的不存在的情况的，因此，我们应该事先定义当变量不存在的替代值，防止报错的发生。</p>
 <p><strong>! :</strong><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>$&#123;name!"hello world"&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div></pre></td></tr></table></figure></p>
 <p>当变量name不存在时，将会用hello world替代.</p>
-<p><strong>?? :</strong><br>一般<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">```html</div><div class="line">&lt;#if user??&gt;&lt;h1&gt;Welcome $&#123;user&#125;!&lt;/h1&gt;&lt;/#if&gt;</div></pre></td></tr></table></figure></p>
-<p>当<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">*注意*：在多级访问的变量中，如```&lt;p&gt;$&#123;user.man.name!&quot;no man&quot;&#125;```，仅仅当user和man存在而name不存在的时候才会用“no man”替代该变量，倘若user和man中有一个变量不存在，而会报错而停止，因此正确做法应该改为：</div><div class="line">```html</div><div class="line">&lt;p&gt;$&#123;(user.man.name)!&quot;no man&quot;&#125;</div></pre></td></tr></table></figure></p>
-<p>使用括号括住多级变量，可避免上述现象的发生，该情况也适用于<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">###### 关于大小写问题</div><div class="line">这里需要留意的是，ftl标签是区分大小写的，这意味着list是指令而List并不是，同时```$&#123;name&#125;```和```$&#123;Name&#125;```是两码事</div><div class="line"></div><div class="line">###### 关于指令间的空白</div><div class="line">freemarker会自动忽略指令中的空白，因此以下的代码是完全没有问题的：</div><div class="line">```html</div><div class="line">&lt;#list </div><div class="line">    animals </div><div class="line">    as </div><div class="line">    animal</div><div class="line">&gt;</div><div class="line">code</div><div class="line">&lt;/#list&gt;</div></pre></td></tr></table></figure></p>
-<p>但需注意的是，在<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">###### 原生字符串</div><div class="line">在freemarker中，```$ &#123; #```等有着特殊的含义，一般是无法打印出来的，最典型的例子是```&quot;hello $&#123;user&#125;&quot;```，若想打印```$ &#123; #```，则可以使用原生字符串，原生字符串就是在普通字符串的引号前加上字母r：</div><div class="line">```html</div><div class="line">$&#123;r&quot;$&#123;user&#125;&quot;&#125;</div></pre></td></tr></table></figure></p>
-<p>以上插值输出的结果为<code>${user}</code></p>
+<p><strong>?? :</strong><br>一般<em>??</em>可与<em>if</em>指令配合使用<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">#if</span> <span class="attr">user</span>??&gt;</span><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Welcome $&#123;user&#125;!<span class="tag">&lt;/<span class="name">h1</span>&gt;</span><span class="tag">&lt;/<span class="name">#if</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>当<em>user</em>不存在的时候，将忽略if标签内的内容</p>
+<p><em>注意</em>：在多级访问的变量中，如<em>${user.man.name!”no man”}</em>，仅仅当user和man存在而name不存在的时候才会用“no man”替代该变量，倘若user和man中有一个变量不存在，而会报错而停止，因此正确做法应该改为：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>$&#123;(user.man.name)!"no man"&#125;</div></pre></td></tr></table></figure></p>
+<p>使用括号括住多级变量，可避免上述现象的发生，该情况也适用于<em>??</em>指令。</p>
+<h6 id="关于大小写问题"><a href="#关于大小写问题" class="headerlink" title="关于大小写问题"></a>关于大小写问题</h6><p>这里需要留意的是，ftl标签是区分大小写的，这意味着list是指令而List并不是，同时<em>${name}</em>和<em>${Name}</em>是两码事</p>
+<h6 id="关于指令间的空白"><a href="#关于指令间的空白" class="headerlink" title="关于指令间的空白"></a>关于指令间的空白</h6><p>freemarker会自动忽略指令中的空白，因此以下的代码是完全没有问题的：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">#list</span> </span></div><div class="line">    <span class="attr">animals</span> </div><div class="line">    <span class="attr">as</span> </div><div class="line">    <span class="attr">animal</span></div><div class="line">&gt;</div><div class="line">code</div><div class="line"><span class="tag">&lt;/<span class="name">#list</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>但需注意的是，在<em>&lt;</em>、<em>&lt;#</em>和指令中间不应该插入空白</p>
+<h6 id="原生字符串"><a href="#原生字符串" class="headerlink" title="原生字符串"></a>原生字符串</h6><p>在freemarker中，<em>$ { #</em>等有着特殊的含义，一般是无法打印出来的，最典型的例子是<em>“hello ${user}”</em>，若想打印<em>$ { #</em>，则可以使用原生字符串，原生字符串就是在普通字符串的引号前加上字母r：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$&#123;r"$&#123;user&#125;"&#125;</div></pre></td></tr></table></figure></p>
+<p>以上插值输出的结果为<em>${user}</em></p>
 
       
     </div>
@@ -307,13 +312,19 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/模板/" rel="tag">#模板</a>
+          
+        </div>
+      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/11/09/20161109-backbone-router/" rel="next" title="20161109_backbone_router">
-                <i class="fa fa-chevron-left"></i> 20161109_backbone_router
+              <a href="/2016/11/09/20161109-backbone-router/" rel="next" title="前面有坑！之 backbone路由">
+                <i class="fa fa-chevron-left"></i> 前面有坑！之 backbone路由
               </a>
             
           </div>
@@ -396,7 +407,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -425,7 +436,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-6"><a class="nav-link" href="#name"><span class="nav-number">1.</span> <span class="nav-text">${name}</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#list指令"><span class="nav-number">2.</span> <span class="nav-text">list指令</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#include指令"><span class="nav-number">3.</span> <span class="nav-text">include指令</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#与"><span class="nav-number">4.</span> <span class="nav-text">!与??</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-6"><a class="nav-link" href="#name"><span class="nav-number">1.</span> <span class="nav-text">${name}</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#if指令"><span class="nav-number">2.</span> <span class="nav-text">if指令</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#list指令"><span class="nav-number">3.</span> <span class="nav-text">list指令</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#include指令"><span class="nav-number">4.</span> <span class="nav-text">include指令</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#与"><span class="nav-number">5.</span> <span class="nav-text">!与??</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#关于大小写问题"><span class="nav-number">6.</span> <span class="nav-text">关于大小写问题</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#关于指令间的空白"><span class="nav-number">7.</span> <span class="nav-text">关于指令间的空白</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#原生字符串"><span class="nav-number">8.</span> <span class="nav-text">原生字符串</span></a></li></ol></div>
             
           </div>
         </section>
