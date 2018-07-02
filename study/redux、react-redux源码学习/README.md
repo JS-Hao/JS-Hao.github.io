@@ -1,3 +1,7 @@
+redux版本：4.0.0 
+
+react-redux版本：5.1.0-test.1 
+
 #### 1. 函数柯里化
 
 ```javascript
@@ -54,3 +58,30 @@ const func = compose([funcA, funcB, funcC]);
 func({});
 ```
 
+
+
+#### 3. ```combineReducers```
+
+1. 输入与输出？
+
+   **输入**
+
+   `combineReducers`接收一个由多个```reducer```组合而成```object```作为输入，存入其中。其中`object`中的`value`应与`state`中的`key`（对应的应该称之为`keyState`？？）相对应
+   **输出**
+
+   输出一个` combination function`，当调用该函数时，会让传入的```state```和```action```流经内部所有的```reducers```，更新相应的`keyState`
+
+2. 过程
+
+   * 内容校验
+   * `reducers`存储
+   * 制定`state`和`action`的流经过程
+
+
+
+#### 4. `<Provider/>`
+
+1. 输入与输出
+   输入`store`， 主要仍是输出一个组件`<Provider />`
+2. 过程
+   `<Provider/>`利用`React`提供的上下文`Context`，将传入的`store`通过`getChildContext`的方式传递给下面子组件，这样所有的子组件都可以随时访问`store`；
