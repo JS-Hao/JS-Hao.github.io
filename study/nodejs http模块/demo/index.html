@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<button>不为你而活</button>
+<!-- <script type="text/javascript" src="./node_modules/axios/dist/axios.min.js"></script> 
+-->
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script type="text/javascript">
+	const btn = document.querySelector('button');
+	btn.addEventListener('click', () => {
+		axios({
+			method: 'post',
+			url: 'http://localhost:3030',
+			data: {
+				van: 'fantesy',
+				wow: 'goooooooooooood',
+			}
+		})
+	}, false);
+	// 
+	// class Father {
+	// 	constructor() {
+
+	// 	}
+	// }
+
+	// class Son {
+	// 	constructor() {
+	// 		return new Father();
+	// 	}
+
+	// 	test() {
+	// 		console.log('son');
+	// 	}
+	// }
+
+	// const son = new Son();
+	// son.test();
+</script>
+</body>
+</html>
