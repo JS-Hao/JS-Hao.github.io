@@ -3,8 +3,8 @@
 ````
 
 study
-	|—— question-list.md
+	|—— README.md
 	|—— output
 				|-- [question].md
-				
+
 ````

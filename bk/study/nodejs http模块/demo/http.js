@@ -43,8 +43,8 @@ class Server extends net.Server {
 }
 
 function parserOnIncoming(headers, socket, server) {
+	console.log(headers);
 	var res = new ServerResponse(socket);
-	console.log('zhazha')
 	server.emit('request', headers, res);
 }
 
@@ -64,7 +64,7 @@ function connectionListener(socket) {
 	}
 
 	parser[kOnHeadersComplete] = function() {
-		console.log('\n\n\n\nonHeadersComplete');
+		console.log('\n=========== onHeadersComplete ===========');
 		// Array.from(arguments).map(item => console.log(item));
 
 		// parser.incoming = new IncomingMessage(socket);
@@ -73,17 +73,18 @@ function connectionListener(socket) {
 	}
 
 	parser[kOnBody] = function() {
-		console.log('\n\n\n\nonBody');
+		console.log('\n=========== onBody ===========');
 		// Array.from(arguments).map(item => console.log(item.toString()));
 		socket.response.emit('data', arguments[0]);
 	}
 
 	parser[kOnMessageComplete] = function() {
-		console.log('\n\n\n\nonMessageComplete');
+		console.log('\n=========== onMessageComplete ===========');
+		socket.response.emit('end');
 		// Array.from(arguments).map(item => console.log(item));
 	}
 
-	socket.on('end', () => console.log('end'));
+	socket.on('end', () => console.log('\n=========== end ===========\n\n\n\n'));
 	// socket.on('data', chunk => {
 	// 	console.log(chunk.toString());
 	// 	socket.end('HTTP/1.1 200 OK\r\nAccess-Control-Allow-Origin: *\r\nAccess-Control-Allow-Headers: Content-Type\r\n\r\nhello world!');
@@ -95,10 +96,6 @@ function connectionListener(socket) {
 	});
 
 }
-
-
-
-
 
 
 class ServerResponse extends EventEmitter {
@@ -125,7 +122,6 @@ class ServerResponse extends EventEmitter {
 		if (!this.headers) {
 			this.writeHead(200);
 		};
-		console.log(`${ this.headers }\r\n${ data }`);
 		this.socket.end(`${ this.headers }\r\n${ data }`);
 	}
 
